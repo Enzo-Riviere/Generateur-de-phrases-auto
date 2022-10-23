@@ -10,7 +10,7 @@ char* typeIndentify(char** ligne) {
      * return char* esst le nom du type.
      */
     //on prend le troisième caractère de la troisième chaine de caracctères qui à chaque fois propre à chaque type.
-    char important_char = ligne[2][2];
+    char important_char = *(*(ligne + 2) + 2);
     switch(important_char) {
         case 'm' : {
             char res[] = "Nom";
