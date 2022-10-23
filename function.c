@@ -28,6 +28,6 @@ char* typeIndentify(char** ligne) {
             char res[] = "Adverbe";
             break;
         }
-        return res;
     }
+    return res;
 }
