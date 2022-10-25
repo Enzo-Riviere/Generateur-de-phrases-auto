@@ -4,30 +4,36 @@
 
 #include "function.h"
 
-char* typeIndentify(char** ligne) {
+char *typeIndentify(char *ligne) {
     /*
      * char** ligne : correspond à une ligne du du dictionnaire.
-     * return char* esst le nom du type.
+     * return char* est le nom du type.
      */
     //on prend le troisième caractère de la troisième chaine de caracctères qui à chaque fois propre à chaque type.
-    char important_char = *(*(ligne + 2) + 2);
-    switch(important_char) {
+    char caractere_important;
+    caractere_important = ligne[2];
+    switch(caractere_important) {
+        //En regarder les information pour chaque mots, on se rends compte que 'Nom', 'Ver', 'Adj', 'Adv' ont un troisième carctère unique
         case 'm' : {
-            char res[] = "Nom";
+            return "Nom";
             break;
         }
         case 'r': {
-            char res[] = "Verbe";
+            return "Verbe";
             break;
         }
         case 'j': {
-            char res[] = "Adjectif";
+            return "Adjectif";
             break;
         }
         case 'v': {
-            char res[] = "Adverbe";
+            return  "Adverbe";
+            break;
+        }
+        default : {
+            //le cas où c'est un déterminat ou une préposistion, on l'ignore
+            return "Non";
             break;
         }
     }
-    return res;
 }
