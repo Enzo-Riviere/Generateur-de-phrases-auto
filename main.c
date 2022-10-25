@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "functions.h"
-#include "functions.c"
 
-#define TAILLE_MAX 1000
+#define TAILLE_MAX 100
 
 int main() {
 
@@ -15,8 +13,10 @@ int main() {
 
     fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Phrases-auto\\test.txt", "r+");
 
+    //Si le fichier n'est pas vide
     if (fichier != NULL)
     {
+        //tant qu'on n'est pas à la dernière ligne
         while (fgets(chaine, TAILLE_MAX, fichier) != NULL){
 
             char chaine1[TAILLE_MAX] = "";
