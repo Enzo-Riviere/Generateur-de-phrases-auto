@@ -37,3 +37,8 @@ char *typeIndentify(char *ligne) {
         }
     }
 }
+
+
+void magie(char** chaine1) {
+    *chaine1 = '1';
+}

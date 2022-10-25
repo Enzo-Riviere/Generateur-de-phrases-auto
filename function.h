@@ -6,5 +6,6 @@
 #define GENERATEUR_DE_PHRASES_AUTO_FUNCTION_H
 
 char* typeIndentify(char *ligne);
+void magie(char** chaine1);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_FUNCTION_H
