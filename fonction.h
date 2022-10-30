@@ -10,4 +10,6 @@
 
 int lettre_dans_liste(t_std_list_lettre, char);
 
+char* copier_mot(char[], char[]);
+
 #endif //GENERATEUR_DE_PHRASES_AUTO_FONCTION_H

@@ -1,11 +1,13 @@
 //
 // Created by yael1 on 25/10/2022.
 //
-#include "t_std.h"
-#include "flechie.h"
+
 
 #ifndef GENERATEUR_DE_PHRASES_AUTO_NODE_H
 #define GENERATEUR_DE_PHRASES_AUTO_NODE_H
+
+#include "t_std.h"
+#include "flechie.h"
 
 //Création de la structure d'un noeud :
 typedef struct {

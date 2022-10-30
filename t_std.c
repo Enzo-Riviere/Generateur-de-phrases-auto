@@ -4,18 +4,31 @@
 
 #include <malloc.h>
 #include "t_std.h"
+#include "node.h"
 
 //Fonction qui créer une cellule stockant une lettre
 //Elle prend en paramètre un caractère qui est la lettre à stocker dans la cellule, er retourne donc une cellule
-p_cell_lettre createCellLettre(char lettre){
+/*p_cell_lettre createCellLettre(char lettre){
     p_cell_lettre p_res = NULL;
     p_res = (p_cell_lettre) malloc (sizeof(t_cell_lettre));
-    if (p_res != NULL){
-        p_res->value = lettre;
-        p_res->next = NULL;
-    }
+
+    p_res->value = lettre;
+    p_res->next = NULL;
+
     return p_res;
+}*/
+
+p_cell_lettre createCellLettre(char lettre){
+    p_cell_lettre nv_cellule = NULL;
+    nv_cellule = (p_cell_lettre) malloc (sizeof(t_cell_lettre));
+
+    p_node nouveau_noeud = createNode(lettre);
+    nv_cellule->valeur = nouveau_noeud;
+    nv_cellule->next = NULL;
+
+    return nv_cellule;
 }
+
 
 
 //Fonction qui créer une cellule stockant une mot
@@ -51,7 +64,7 @@ t_std_list_mot createEmptylistMot(){
 
 //Fonction qui permet d'ajouter une nouvelle une nouvelle cellule dans une liste de lettre
 //Elle prend en paramètre la liste de lettre à laquelle on veut ajouter une cellule, ainsi que la lettre à mettre dans cette nouvelle cellule. Elle ne retourne rien.
-void chainageLettre(t_std_list_lettre *listeLettre, char lettre){
+p_node chainageLettre(t_std_list_lettre *listeLettre, char lettre){
     p_cell_lettre nouvelle_cellule;
     nouvelle_cellule = createCellLettre(lettre);
 
@@ -61,4 +74,18 @@ void chainageLettre(t_std_list_lettre *listeLettre, char lettre){
         nouvelle_cellule->next = listeLettre->head;
         listeLettre->head = nouvelle_cellule;
     }
+    return nouvelle_cellule->valeur;
 }
+
+/*p_node chainageMot(t_std_list_lettre *listeLettre, char lettre){
+    p_cell_lettre nouvelle_cellule;
+    nouvelle_cellule = createCellLettre(lettre);
+
+    if (listeLettre->head == NULL){
+        listeLettre->head = nouvelle_cellule;
+    }else{
+        nouvelle_cellule->next = listeLettre->head;
+        listeLettre->head = nouvelle_cellule;
+    }
+    return nouvelle_cellule->valeur;
+}*/

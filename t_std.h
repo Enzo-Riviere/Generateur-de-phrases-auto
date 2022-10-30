@@ -5,6 +5,9 @@
 #ifndef GENERATEUR_DE_PHRASES_AUTO_T_STD_H
 #define GENERATEUR_DE_PHRASES_AUTO_T_STD_H
 
+#include "t_std.h"
+#include "node.h"
+
 //Création de la structure d'une cellule pour une chaine de caractère (stockage des mots fléchies) :
 typedef struct{
     char value[1000];
@@ -12,8 +15,13 @@ typedef struct{
 }*p_cell_mot, t_cell_mot;
 
 //Création de la structure d'une cellule pour un mot (stockage des lettres de l'alphabet dans les arbres):
-typedef struct{
+/*typedef struct{
     char value;
+    struct p_cell_mot *next;
+}*p_cell_lettre, t_cell_lettre;*/
+
+typedef struct{
+    p_node valeur;
     struct p_cell_mot *next;
 }*p_cell_lettre, t_cell_lettre;
 
@@ -35,7 +43,8 @@ p_cell_mot createCellMot(char[]);
 t_std_list_lettre createEmptylistLettre();
 t_std_list_mot createEmptylistmot();
 
-void chainageLettre(t_std_list_lettre* ,char);
+p_node chainageLettre(t_std_list_lettre* ,char);
+p_node chainageMot(t_std_list_lettre* , char*);
 
 
 
