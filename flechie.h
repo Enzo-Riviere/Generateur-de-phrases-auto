@@ -6,6 +6,9 @@
 #ifndef GENERATEUR_DE_PHRASES_AUTO_FLECHIE_H
 #define GENERATEUR_DE_PHRASES_AUTO_FLECHIE_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "node.h"
 #include "t_std.h"
 
 //Création de la structure de chaque mot fléchie :

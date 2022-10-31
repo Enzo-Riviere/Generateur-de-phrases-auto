@@ -5,8 +5,10 @@
 #ifndef GENERATEUR_DE_PHRASES_AUTO_T_STD_H
 #define GENERATEUR_DE_PHRASES_AUTO_T_STD_H
 
-#include "t_std.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "node.h"
+#include "flechie.h"
 
 //Création de la structure d'une cellule pour une chaine de caractère (stockage des mots fléchies) :
 typedef struct{
