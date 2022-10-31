@@ -18,7 +18,7 @@
     return p_res;
 }*/
 
-p_cell_lettre createCellLettre(char lettre){
+/*p_cell_lettre createCellLettre(char lettre){
     p_cell_lettre nv_cellule = NULL;
     nv_cellule = (p_cell_lettre) malloc (sizeof(t_cell_lettre));
 
@@ -27,7 +27,7 @@ p_cell_lettre createCellLettre(char lettre){
     nv_cellule->next = NULL;
 
     return nv_cellule;
-}
+}*/
 
 
 
@@ -46,11 +46,11 @@ p_cell_lettre createCellLettre(char lettre){
 
 //Fonction qui créer une liste de "lettre" vide
 //Elle ne prend rien en parametre et retourne une liste de lettre (t_std_list_lettre)
-t_std_list_lettre createEmptylistLettre(){
+/*t_std_list_lettre createEmptylistLettre(){
     t_std_list_lettre maListVide;
     maListVide.head = NULL;
     return maListVide;
-}
+}*/
 
 
 //Fonction qui créer une liste de "mot" vide
@@ -64,7 +64,7 @@ t_std_list_mot createEmptylistMot(){
 
 //Fonction qui permet d'ajouter une nouvelle une nouvelle cellule dans une liste de lettre
 //Elle prend en paramètre la liste de lettre à laquelle on veut ajouter une cellule, ainsi que la lettre à mettre dans cette nouvelle cellule. Elle ne retourne rien.
-p_node chainageLettre(t_std_list_lettre *listeLettre, char lettre){
+/*p_node chainageLettre(t_std_list_lettre *listeLettre, char lettre){
     p_cell_lettre nouvelle_cellule;
     nouvelle_cellule = createCellLettre(lettre);
 
@@ -76,7 +76,7 @@ p_node chainageLettre(t_std_list_lettre *listeLettre, char lettre){
     }
     return nouvelle_cellule->valeur;
 }
-
+*/
 /*p_node chainageMot(t_std_list_lettre *listeLettre, char lettre){
     p_cell_lettre nouvelle_cellule;
     nouvelle_cellule = createCellLettre(lettre);

@@ -13,7 +13,7 @@ t_tree createEmptyTree (){
     return mytree;
 }
 
-void ajout_mot(t_tree* arbre, char mot_court[], char* flechie, char type[]){
+/*void ajout_mot(t_tree* arbre, char mot_court[], char* flechie, char type[]){
     int i = 0;
     p_node tmp = arbre->root;
     while(mot_court[i+1] != '\0'){
@@ -39,13 +39,13 @@ void ajout_mot(t_tree* arbre, char mot_court[], char* flechie, char type[]){
         }
         tmp = verif->valeur;
     }
-    /*if(tmp->fin_mot == 0){
+    if(tmp->fin_mot == 0){
         tmp->fin_mot = 1;
         flechies nv_mot;
         nv_mot.nom_mot = copier_mot(nv_mot.nom_mot,flechie);
 
 
-    }*/
-}
+    }
+}*/
 
 

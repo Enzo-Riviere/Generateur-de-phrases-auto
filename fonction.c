@@ -4,8 +4,24 @@
 
 #include "fonction.h"
 
-int lettre_dans_liste(t_std_list_lettre liste, char lettre){
-    p_cell_lettre tmp = liste.head;
+int lettre_dans_tableau(p_node *tab_enfant, char lettre){
+    int i = 0, verif = 0;
+    do{
+        if (tab_enfant[i]->val == lettre) {
+            verif = 1;
+        }
+        i++;
+    }while((i<4) && (verif == 0));
+
+    /*while((tab_enfant[i]->val != '\0') && (verif == 0)){
+        if
+        i++;
+    }*/
+
+    return verif;
+
+
+    /*p_cell_lettre tmp = liste.head;
     int res = 0;
     while (tmp != NULL && (tmp->valeur->val != lettre)){
         tmp = tmp->next;
@@ -13,7 +29,7 @@ int lettre_dans_liste(t_std_list_lettre liste, char lettre){
     if (tmp != NULL){
         res = 1;
     }
-    return res;
+    return res;*/
 }
 
 char* copier_mot(char chaine_vide[], char chaine_a_copier[]){

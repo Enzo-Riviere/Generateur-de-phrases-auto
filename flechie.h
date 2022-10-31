@@ -8,11 +8,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "node.h"
 #include "t_std.h"
 
 //Création de la structure de chaque mot fléchie :
-typedef struct {
+/*typedef struct {
     char* nom_mot;
     t_std_list_mot forme_grammatical;
 }flechies;
@@ -23,7 +22,7 @@ typedef struct{
     int nb_flechie;
     t_std_list_mot forme_grammatical;
     t_std_list_mot flechies;
-}mot;
+}mot;*/
 
 
 
