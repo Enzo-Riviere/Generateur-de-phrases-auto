@@ -12,7 +12,7 @@ int main() {
     ajouter_enfant(test, 'c');
     ajouter_enfant(test, 'd');
 
-    printf("%c\n", test->val),
+    printf("%c\n", test->val);
 
     printf("%c\n", test->enfants[0]->val);
     printf("test");
