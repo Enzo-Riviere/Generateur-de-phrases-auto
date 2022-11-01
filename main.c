@@ -45,5 +45,9 @@ int main() {
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adjectif = createEmptyTree();
     t_tree arbre_adverbe = createEmptyTree();*/
+    /*
+    int *a = (int*) malloc(sizeof(int) * 12);
+    printf("%d\n", taille_liste(a));
+     */
     return 0;
 }
