@@ -41,7 +41,7 @@ p_cell_mot createCellMot(char mot_cours[100]){
             p_res->value[i] = mot_cours[i];
             i++;
         }
-        p_res->value[i] == '\0';
+        p_res->value[i] = '\0';
         p_res->next = NULL;
     }
     return p_res;
