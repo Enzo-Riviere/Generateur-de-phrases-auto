@@ -30,17 +30,6 @@
     return nv_cellule;
 }*/
 
-int taille_liste(void *liste) {
-    int res = 0;
-    if (liste == NULL) {
-        int taille_liste, taille_liste_case;
-        taille_liste = sizeof(liste);
-        taille_liste_case = sizeof(*(liste + 0));
-        res = (int) ((taille_liste - (taille_liste % taille_liste_case))/taille_liste_case);
-    }
-    return res;
-}
-
 //Fonction qui créer une cellule stockant une mot
 //Elle prend en paramètre une chaine de caractère qui est le mot à stocker dans la cellule, er retourne donc une cellule
 p_cell_mot createCellMot(char mot_cours[100]){
@@ -48,7 +37,8 @@ p_cell_mot createCellMot(char mot_cours[100]){
     p_res = (p_cell_mot) malloc (sizeof(t_cell_mot));
     if (p_res != NULL){
         int taille = taille_liste(mot_cours);
-        for(int i = 0; i < taille; i++) {
+
+        while(i != '\0') {
             p_res->value[i] = mot_cours[i];
         }
         p_res->next = NULL;
