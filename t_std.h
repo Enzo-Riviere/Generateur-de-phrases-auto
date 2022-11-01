@@ -38,6 +38,7 @@ typedef struct{
     p_cell_lettre head;
 } t_std_list_lettre;*/
 
+int taille_liste(void *liste);
 
 //p_cell_lettre createCellLettre(char);
 p_cell_mot createCellMot(char[]);
