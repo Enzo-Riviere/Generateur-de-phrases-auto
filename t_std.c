@@ -29,7 +29,16 @@
     return nv_cellule;
 }*/
 
-
+int taille_liste(void *liste) {
+    int res = 0;
+    if (liste == NULL) {
+        int taille_liste, taille_liste_case;
+        taille_liste = sizeof(liste);
+        taille_liste_case = sizeof(*(liste + 0));
+        res = (int) ((taille_liste - (taille_liste % taille_liste_case))/taille_liste_case);
+    }
+    return res;
+}
 
 //Fonction qui créer une cellule stockant une mot
 //Elle prend en paramètre une chaine de caractère qui est le mot à stocker dans la cellule, er retourne donc une cellule
