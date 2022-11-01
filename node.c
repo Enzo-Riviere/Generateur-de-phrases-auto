@@ -17,9 +17,11 @@ p_node createNode(char lettre){
     return noeud;
 }
 
-void ajouter_enfant(p_node noeud, char lettre){
+p_node ajouter_enfant(p_node noeud, char lettre){
     p_node nv_enfant= createNode(lettre);
     noeud->enfants[noeud->nb_enfants] = nv_enfant;
     noeud->nb_enfants ++;
     noeud->enfants = (p_node*) realloc (noeud->enfants ,sizeof (p_node) * (noeud->nb_enfants+1));
+
+    return nv_enfant;
 }

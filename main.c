@@ -21,7 +21,26 @@ int main() {
     printf("%c\n", test->enfants[2]->val);
 
 
-    printf("%d", lettre_dans_tableau(test, 'e'));
+    printf("%d\n", lettre_dans_tableau(test, 'b'));
+
+    ajouter_enfant(test, 'z');
+    printf("%c\n", test->enfants[3]->val);
+    printf("%d\n", lettre_dans_tableau(test, 'z'));
+
+    t_tree arbre_nom = createEmptyTree();
+    printf("\nMot 1:\n");
+    ajout_mot(&arbre_nom, "aeb", "aifav", "zvoznv");
+
+    printf("Le sous enfant 0 du sous enfant 0 de root est : %c\n", arbre_nom.root->enfants[0]->enfants[0]->val);
+
+
+    printf("\nMot 2:\n");
+    ajout_mot(&arbre_nom, "aqb", "aifav", "zvoznv");
+    printf("Le sous enfant 0 du sous enfant 0 de root est : %c\n", arbre_nom.root->enfants[0]->enfants[1]->val);
+
+    printf("\nMot 3:\n");
+    ajout_mot(&arbre_nom, "bzb", "aifav", "zvoznv");
+    printf("Le sous enfant 0 du sous enfant 0 de root est : %c\n", arbre_nom.root->enfants[1]->enfants[0]->val);
     /*t_tree arbre_nom = createEmptyTree();
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adjectif = createEmptyTree();

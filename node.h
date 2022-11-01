@@ -16,10 +16,10 @@ typedef struct s_node{
     struct s_node **enfants;
     int nb_enfants;
     int fin_mot;
-    //mot *si_fin_mot;
+    mot *si_fin_mot;
 }t_node, *p_node;
 
 p_node createNode(char val);
-void ajouter_enfant(p_node, char);
+p_node ajouter_enfant(p_node, char);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_NODE_H
