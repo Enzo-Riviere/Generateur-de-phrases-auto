@@ -5,14 +5,20 @@
 #include "flechie.h"
 #include "node.h"
 #include "t_std.h"
-/*
+
 mot* creer_mot(char mot_court[]) {
     mot *temp;
     temp = (mot*) malloc(sizeof(mot));
     temp->nb_flechie = 1;
-    temp->nom_mot = createEmptylistmot()
+    int i = 0;
+    while(mot_court[i] != '\0') {
+        temp->nom_mot[i] = mot_court[i];
+    }
+    temp->flechies = createEmptylistmot();
+    temp->forme_grammatical = createEmptylistmot();
+    return temp;
 }
-*/
+
 //void ajout_flech(p_node pn, char mot_court[], char flechie[], char type[]) {
     /*
      * Cette fonction sert à jouter le mot fléchie à au dernier caratère du mot de base.
