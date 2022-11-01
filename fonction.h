@@ -8,7 +8,7 @@
 #ifndef GENERATEUR_DE_PHRASES_AUTO_FONCTION_H
 #define GENERATEUR_DE_PHRASES_AUTO_FONCTION_H
 
-int lettre_dans_tableau(p_node*, char);
+int lettre_dans_tableau(p_node, char);
 
 char* copier_mot(char[], char[]);
 

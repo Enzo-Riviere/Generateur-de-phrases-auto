@@ -21,7 +21,7 @@ int main() {
     printf("%c\n", test->enfants[2]->val);
 
 
-    printf("%d", lettre_dans_tableau(test->enfants, 'e'));
+    printf("%d", lettre_dans_tableau(test, 'e'));
     /*t_tree arbre_nom = createEmptyTree();
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adjectif = createEmptyTree();
