@@ -19,10 +19,13 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 
     //On traite tout le mot en s'arrêtant avant le dernier caractère
     while(mot_court[i+1] != '\0'){
+        //on regard si la lettre et dans le tableau
         if(lettre_dans_tableau(tmp, mot_court[i]) == 0){
+            //on ajoute la nouvelle lettre comme branche du noeud et le pointeur prend son addresse
             p_node nv_tmp = ajouter_enfant(tmp, mot_court[i]);
             tmp = nv_tmp;
         }else{
+            //on parcours la liste des lettres déja existant pour trouver l'adresse et le pointeru tmp prend cette adresse.
             int j = 0;
             while ((j< tmp->nb_enfants) && (tmp->enfants[j]->val != mot_court[i])){
                 j++;
@@ -34,6 +37,7 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
     }
 
     //On traite le dernier caractère
+    // on fait la même chose que dans la boucle
     if(lettre_dans_tableau(tmp, mot_court[i]) == 0){
         p_node nv_tmp = ajouter_enfant(tmp, mot_court[i]);
         tmp = nv_tmp;
@@ -44,8 +48,8 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
         }
         tmp = tmp->enfants[k];
     }
-    printf("Enfant numero %d depuis root : %c\n",i, tmp->val);
 
+    printf("Enfant numero %d depuis root : %c\n",i, tmp->val);
     /*if(tmp->fin_mot == 0){
         tmp->fin_mot = 1;
         flechies nv_mot;
