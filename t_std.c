@@ -42,15 +42,18 @@ int taille_liste(void *liste) {
 
 //Fonction qui créer une cellule stockant une mot
 //Elle prend en paramètre une chaine de caractère qui est le mot à stocker dans la cellule, er retourne donc une cellule
-/*p_cell_mot createCellMot(char mot[100]){
+p_cell_mot createCellMot(char mot_cours[100]){
     p_cell_mot p_res = NULL;
     p_res = (p_cell_mot) malloc (sizeof(t_cell_mot));
     if (p_res != NULL){
-        p_res->value = mot[100];
+        int taille = taille_liste(mot_cours);
+        for(int i = 0; i < taille; i++) {
+            p_res->value[i] = mot_cours[i];
+        }
         p_res->next = NULL;
     }
     return p_res;
-}*/
+}
 
 
 //Fonction qui créer une liste de "lettre" vide
