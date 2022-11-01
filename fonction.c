@@ -11,12 +11,7 @@ int lettre_dans_tableau(p_node *tab_enfant, char lettre){
             verif = 1;
         }
         i++;
-    }while((i<4) && (verif == 0));
-
-    /*while((tab_enfant[i]->val != '\0') && (verif == 0)){
-        if
-        i++;
-    }*/
+    }while((i<26) && (verif == 0));
 
     return verif;
 

@@ -15,12 +15,13 @@ int main() {
     printf("%c\n", test->val);
 
     printf("%c\n", test->enfants[0]->val);
-    printf("test");
+    //printf("test");
     printf("%c\n", test->enfants[1]->val);
-    printf("test");
+   //printf("test\n");
+    printf("%c\n", test->enfants[2]->val);
 
 
-    //printf("%d", lettre_dans_tableau(test->enfants, 'c'));
+    printf("%d", lettre_dans_tableau(test->enfants, 'e'));
     /*t_tree arbre_nom = createEmptyTree();
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adjectif = createEmptyTree();
