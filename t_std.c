@@ -5,6 +5,7 @@
 #include <malloc.h>
 #include "t_std.h"
 #include "node.h"
+#include "flechie.h"
 
 //Fonction qui créer une cellule stockant une lettre
 //Elle prend en paramètre un caractère qui est la lettre à stocker dans la cellule, er retourne donc une cellule
