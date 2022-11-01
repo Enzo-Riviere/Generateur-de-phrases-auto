@@ -36,11 +36,12 @@ p_cell_mot createCellMot(char mot_cours[100]){
     p_cell_mot p_res = NULL;
     p_res = (p_cell_mot) malloc (sizeof(t_cell_mot));
     if (p_res != NULL){
-        int taille = taille_liste(mot_cours);
-
-        while(i != '\0') {
+        int i = 0;
+        while(mot_cours[i] != '\0') {
             p_res->value[i] = mot_cours[i];
+            i++;
         }
+        p_res->value[i] == '\0';
         p_res->next = NULL;
     }
     return p_res;
