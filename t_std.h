@@ -45,6 +45,8 @@ p_cell_mot createCellMot(char[]);
 //t_std_list_lettre createEmptylistLettre();
 t_std_list_mot createEmptylistmot();
 
+mot* creer_p_Mot(char mot_cours[100]);
+
 //p_node chainageLettre(t_std_list_lettre* ,char);
 //p_node chainageMot(t_std_list_lettre* , char*);
 
