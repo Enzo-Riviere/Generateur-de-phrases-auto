@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "arbre.h"
 #include "fonction.h"
+#include "flechie.h"
 
 #define TAILLE_MAX 25
 

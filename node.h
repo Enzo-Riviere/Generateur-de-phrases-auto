@@ -22,4 +22,7 @@ typedef struct s_node{
 p_node createNode(char val);
 p_node ajouter_enfant(p_node, char);
 
+mot* creer_mot(char mot_court[]);
+void ajout_flech(p_node pn, char mot_court[], char flechie[], char type[])
+
 #endif //GENERATEUR_DE_PHRASES_AUTO_NODE_H
