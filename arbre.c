@@ -51,6 +51,7 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
     }
 
     printf("Enfant numero %d depuis root : %c\n",i, tmp->val);
+    ajout_flech(tmp,mot_court,flechie, type);
     /*if(tmp->fin_mot == 0){
         tmp->fin_mot = 1;
         flechies nv_mot;
