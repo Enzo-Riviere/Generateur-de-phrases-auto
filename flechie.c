@@ -14,8 +14,9 @@ mot* creer_mot(char mot_court[]) {
     while(mot_court[i] != '\0') {
         temp->nom_mot[i] = mot_court[i];
     }
-    temp->flechies = createEmptylistmot();
-    temp->forme_grammatical = createEmptylistmot();
+    temp->nom_mot[i] = '\0';
+    temp->flechies = createEmptylistMot();
+    temp->forme_grammatical = createEmptylistMot();
     return temp;
 }
 

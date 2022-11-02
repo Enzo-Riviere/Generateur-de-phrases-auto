@@ -43,7 +43,7 @@ typedef struct{
 p_cell_mot createCellMot(char[]);
 
 //t_std_list_lettre createEmptylistLettre();
-t_std_list_mot createEmptylistmot();
+t_std_list_mot createEmptylistMot();
 
 
 //p_node chainageLettre(t_std_list_lettre* ,char);
