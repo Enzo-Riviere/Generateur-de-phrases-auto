@@ -67,14 +67,11 @@ void ajout_flech(p_node pn, char mot_court[], char flechie[], char type[]) {
     pn->si_fin_mot->nb_flechie++;
     printf("boucle pour le flechie\n");
     //On rajoute une noeud contenant la chaine de caractère qui est le flechie
-    p_cell_mot temp = pn->si_fin_mot->flechies.head;
-    p_cell_mot mom = pn->si_fin_mot->forme_grammatical.head;
-    int u = 0;
-    if (temp != NULL) {
+    if (pn->si_fin_mot->flechies.head != NULL) {
+        p_cell_mot temp = pn->si_fin_mot->flechies.head;
+        p_cell_mot mom = pn->si_fin_mot->forme_grammatical.head;
         while (temp->next != NULL) {
-            printf("%d", u);
             temp = temp->next;
-            u++;
         }
         temp->next = createCellMot(flechie);
         //on fait de meme pour la forme gramaticale
@@ -86,11 +83,13 @@ void ajout_flech(p_node pn, char mot_court[], char flechie[], char type[]) {
     }
     else {
         printf("autre cas\n");
-        temp = createCellMot(flechie);
-        printf(temp->value);
+        printf("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa\n");
+        pn->si_fin_mot->flechies.head = createCellMot(flechie);
+        printf(pn->si_fin_mot->flechies.head->value);
         printf("\n");
-        mom = createCellMot(type);
-        printf(mom->value);
+        pn->si_fin_mot->forme_grammatical.head = createCellMot(type);
+        printf(pn->si_fin_mot->forme_grammatical.head->value);
+        printf("\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa\n");
     }
 
 }

@@ -32,8 +32,8 @@ int main() {
     ajout_mot(&arbre_nom, "aeb", "aifav", "zvoznv");
 
     printf("Le sous enfant 0 du sous enfant 0 de root est : %c\n", arbre_nom.root->enfants[0]->enfants[0]->val);
-    p_cell_mot omm = arbre_nom.root->enfants[0]->enfants[0]->enfants[0]->si_fin_mot->forme_grammatical.head;
-    printf(omm->value);
+    //p_cell_mot omm = arbre_nom.root->enfants[0]->enfants[0]->enfants[0]->si_fin_mot->forme_grammatical.head;
+    printf(arbre_nom.root->enfants[0]->enfants[0]->enfants[0]->si_fin_mot->forme_grammatical.head->value);
 
 
     printf("\nMot 2:\n");
