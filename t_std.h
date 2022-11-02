@@ -7,13 +7,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "node.h"
-#include "flechie.h"
 
 //Création de la structure d'une cellule pour une chaine de caractère (stockage des mots fléchies) :
-typedef struct{
+typedef struct n_cell_mot{
     char value[1000];
-    struct p_cell_mot *next;
+    struct n_cell_mot *next;
 }*p_cell_mot, t_cell_mot;
 
 //Création de la structure d'une cellule pour un mot (stockage des lettres de l'alphabet dans les arbres):
