@@ -3,5 +3,4 @@
 //
 
 #include "flechie.h"
-#include "node.h"
 #include "t_std.h"
