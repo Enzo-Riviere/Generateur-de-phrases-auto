@@ -56,7 +56,6 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
         tmp->fin_mot = 1;
         flechies nv_mot;
         nv_mot.nom_mot = copier_mot(nv_mot.nom_mot,flechie);
-
     }*/
 }
 
