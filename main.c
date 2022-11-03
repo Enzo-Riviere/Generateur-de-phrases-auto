@@ -47,7 +47,10 @@ int main() {
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adjectif = createEmptyTree();
     t_tree arbre_adverbe = createEmptyTree();*/
-
-
+    //printf("%c\n", arbre_nom.root->val);
+    mot* resultat;
+    resultat = genMotAleat(&arbre_nom);
+    printf("\n");
+    printf(resultat->nom_mot);
     return 0;
 }

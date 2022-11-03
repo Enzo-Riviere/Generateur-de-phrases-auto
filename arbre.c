@@ -95,3 +95,50 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 }*/
 
 
+mot* genMotAleat(t_tree* arbre_mot) {
+    srand(1);
+    p_node temp = arbre_mot->root;
+    int i = 1, nombre_enfant, f = 0;
+    while (i) {
+        //printf("\n%d\n",f);
+        //printf("_____v\n%c\n_____^\n",temp->val);
+        //cas où on peut s'arrêter à ce p_node
+        if (temp->fin_mot != 0) {
+            //printf("cas où on peut s'arrêter à ce p_node\n");
+            //cas où ne peut pas continuer
+            if (temp->nb_enfants == 0) {
+                //printf("cas où ne peut pas continuer\n");
+                i = 0;
+            }
+            else {
+                //si on à les deux choix alors on si rand sort un nompre impaire alors on continue
+                if (rand() % 2 == 1) {
+                    //printf("si on à les deux choix alors on si rand sort un nompre impaire alors on continue\n");
+                    nombre_enfant = temp->nb_enfants;
+                    temp = *(temp->enfants + (rand() % nombre_enfant));
+                }
+                //si c'est paire on s'arrête
+                else {
+                    //printf("si c'est paire on s'arrête\n");
+                    i = 0;
+                }
+            }
+        }
+        else {
+            //cas où on ne peut pas s'arrêter
+            //printf("cas où on ne peut pas s'arrêter\n");
+            nombre_enfant = temp->nb_enfants;
+            temp = *(temp->enfants + (rand() % nombre_enfant));
+        }
+        f++;
+    }
+    /*
+    printf("afficher nombre\n");
+    printf("\n%d\n",f);
+    printf("hhhhhhhhhhhhhhhhhhh\n");
+    printf("%d\n", (temp != NULL));
+    printf("%c",temp->val);
+    printf("hhhhhhhhhhhhhhhhhhh\n");
+     */
+    return temp->si_fin_mot;
+}

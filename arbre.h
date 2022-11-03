@@ -21,5 +21,6 @@ t_tree createEmptyTree();
 
 void ajout_mot(t_tree*, char[], char[], char[]);
 
+mot* genMotAleat(t_tree* arbre_mot);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_ARBRE_H
