@@ -2,11 +2,14 @@
 #include "arbre.h"
 #include "node.h"
 #include "fonction.h"
+#include "Creation_arbres.h"
+
+#define TAILLE_MAX 100
 
 int main() {
     printf("Hello, World!\n");
 
-    p_node test = createNode('a');
+    /*p_node test = createNode('a');
 
     ajouter_enfant(test, 'b');
     ajouter_enfant(test, 'c');
@@ -42,15 +45,19 @@ int main() {
 
     printf("\nMot 3:\n");
     ajout_mot(&arbre_nom, "bzb", "aifav", "zvoznv");
-    printf("Le sous enfant 0 du sous enfant 0 de root est : %c\n", arbre_nom.root->enfants[1]->enfants[0]->val);
+    printf("Le sous enfant 0 du sous enfant 0 de root est : %c\n", arbre_nom.root->enfants[1]->enfants[0]->val);*/
     /*t_tree arbre_nom = createEmptyTree();
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adjectif = createEmptyTree();
     t_tree arbre_adverbe = createEmptyTree();*/
     //printf("%c\n", arbre_nom.root->val);
-    mot* resultat;
+    /*mot* resultat;
     resultat = genMotAleat(&arbre_nom);
     printf("\n");
-    printf(resultat->nom_mot);
+    printf(resultat->nom_mot);*/
+
+    creation_arbres();
+
+
     return 0;
 }
