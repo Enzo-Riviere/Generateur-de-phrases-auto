@@ -105,7 +105,7 @@ void creation_arbres(){
 
             }
 
-            printf("%s\n%s\n%s\n\n\n", chaine1, chaine2, chaine3);
+            //printf("%s\n%s\n%s\n\n\n", chaine1, chaine2, chaine3);
 
         }
 

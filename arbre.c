@@ -25,7 +25,7 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
             //on ajoute la nouvelle lettre comme branche du noeud et le pointeur prend son addresse
             p_node nv_tmp = ajouter_enfant(tmp, mot_court[i]);
             tmp = nv_tmp;
-            printf("%c : N'existe pas, ajout dans les enfants\n", tmp->val);
+
         }else{
             //on parcours la liste des lettres déja existant pour trouver l'adresse et le pointeru tmp prend cette adresse.
             int j = 0;
@@ -33,7 +33,6 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
                 j++;
             }
             tmp = tmp->enfants[j];
-            printf("%c : Existe deja, on se deplace dessus\n", tmp->val);
         }
         i++;
     }
@@ -43,58 +42,17 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
     if(lettre_dans_tableau(tmp, mot_court[i]) == 0){
         p_node nv_tmp = ajouter_enfant(tmp, mot_court[i]);
         tmp = nv_tmp;
-        printf("%c : N'existe pas, ajout dans les enfants\n", tmp->val);
     }else{
         int k = 0;
         while ((k< tmp->nb_enfants) && (tmp->enfants[k]->val != mot_court[i])){
             k++;
         }
         tmp = tmp->enfants[k];
-        printf("%c : Existe deja, on se deplace dessus\n", tmp->val);
     }
 
     ajout_flech(tmp,mot_court,flechie, type);
-    /*if(tmp->fin_mot == 0){
-        tmp->fin_mot = 1;
-        flechies nv_mot;
-        nv_mot.nom_mot = copier_mot(nv_mot.nom_mot,flechie);
-    }*/
 }
 
-
-/*void ajout_mot(t_tree* arbre, char mot_court[], char* flechie, char type[]){
-    int i = 0;
-    p_node tmp = arbre->root;
-    while(mot_court[i+1] != '\0'){
-        if (lettre_dans_liste(tmp->enfant, mot_court[i]) == 0){
-            p_node nv_tmp = chainageLettre(&tmp->enfant,  mot_court[i]);
-            tmp = nv_tmp;
-        }else{
-            p_cell_lettre verif = tmp->enfant.head;
-            while (verif->valeur->val != mot_court[i]){
-                verif = verif->next;
-            }
-            tmp = verif->valeur;
-        }
-        i++;
-    }
-    if (lettre_dans_liste(tmp->enfant, mot_court[i]) == 0){
-        p_node nv_tmp = chainageLettre(&tmp->enfant,  mot_court[i]);
-        tmp = nv_tmp;
-    }else{
-        p_cell_lettre verif = tmp->enfant.head;
-        while (verif->valeur->val != mot_court[i]){
-            verif = verif->next;
-        }
-        tmp = verif->valeur;
-    }
-    if(tmp->fin_mot == 0){
-        tmp->fin_mot = 1;
-        flechies nv_mot;
-        nv_mot.nom_mot = copier_mot(nv_mot.nom_mot,flechie);
-
-    }
-}*/
 
 
 mot* genMotAleat(t_tree* arbre_mot) {
