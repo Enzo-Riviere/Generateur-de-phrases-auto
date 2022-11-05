@@ -133,7 +133,7 @@ t_tree* creation_arbres_et_donne(){
     FILE* fichier = NULL;
     char chaine[TAILLE_MAX] = "";
 
-    fichier = fopen("C:/Users/yael1/OneDrive/Bureau/Generateur-de-phrases-auto/test.txt", "r+");
+    fichier = fopen("D:/Program Files (x86)/document_efrei/Semestre 03/TI301 - Algorithmique et structure de données 2 (L2, L2-BN, L2-R - 2223S3)/Generateur-de-phrases-autotest.txt", "r+");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
