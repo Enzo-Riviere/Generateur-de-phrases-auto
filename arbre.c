@@ -142,3 +142,7 @@ mot* genMotAleat(t_tree* arbre_mot) {
      */
     return temp->si_fin_mot;
 }
+
+char* accord_flechies_Adj(mot* mot_choisi, char type[]) {
+    return NULL;
+}
