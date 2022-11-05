@@ -143,6 +143,7 @@ mot* genMotAleat(t_tree* arbre_mot) {
     return temp->si_fin_mot;
 }
 
-char* accord_flechies_Adj(mot* mot_choisi, char type[]) {
+char* accord_flechies_Adj(mot* nom_choisi, mot* adjectif_choisi, char type[]) {
+    //On suppose le nom à un suel flechie
     return NULL;
 }
