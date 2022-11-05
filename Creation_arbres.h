@@ -8,5 +8,6 @@
 
 char typeIndentify(char *ligne);
 void creation_arbres();
+t_tree* creation_arbres_et_donne();
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_CREATION_ARBRES_H
