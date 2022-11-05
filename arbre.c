@@ -155,7 +155,7 @@ void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
         printf(verbe1->nom_mot);
         printf(" ");
         printf(nom_fin->nom_mot);
-        printf("\n");
+        printf(".\n");
     }
     else {
         if (cas == 2) {
@@ -171,7 +171,7 @@ void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
             printf(nom_fin->nom_mot);
             printf(" ");
             printf(adjectif->nom_mot);
-            printf("\n");
+            printf(".\n");
         }
         else {
             //cas 3 : nom - adjectif - verbe - adverbe
@@ -184,7 +184,7 @@ void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
             printf(verbe1->nom_mot);
             printf(" ");
             printf(adverbe->nom_mot);
-            printf("\n");
+            printf(".\n");
         }
     }
 }
