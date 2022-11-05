@@ -56,7 +56,7 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 
 
 mot* genMotAleat(t_tree* arbre_mot) {
-    srand(1);
+    //srand(3);
     p_node temp = arbre_mot->root;
     int i = 1, nombre_enfant, f = 0;
     while (i) {
@@ -146,6 +146,35 @@ void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
     nom_fin = genMotAleat(&Nom);
     adjectif = genMotAleat(&Adj);
     verbe1 = genMotAleat(&Verb);
+
+    /*
+    printf(nom_debut->flechies.head->value);
+    printf("\t");
+    printf(nom_debut->nom_mot);
+    printf("\t");
+    printf(nom_debut->forme_grammatical.head->value);
+    printf("\n");
+    printf(adjectif->flechies.head->value);
+    printf("\t");
+    printf(adjectif->nom_mot);
+    printf("\t");
+    printf(adjectif->forme_grammatical.head->value);
+    printf("\n");
+    printf(verbe1->flechies.head->value);
+    printf("\t");
+    printf(verbe1->nom_mot);
+    printf("\t");
+    printf(verbe1->forme_grammatical.head->value);
+    printf("\n");
+
+    printf(nom_debut->flechies.head->value);
+    printf("\t");
+    printf(nom_debut->nom_mot);
+    printf("\t");
+    printf(nom_debut->forme_grammatical.head->value);
+    printf("\n");
+     */
+
     if (cas == 1) {
         // cas 1 : nom - adjectif - verbe - nom
         printf(nom_debut->nom_mot);
