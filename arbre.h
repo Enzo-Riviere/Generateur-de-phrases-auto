@@ -22,5 +22,6 @@ t_tree createEmptyTree();
 void ajout_mot(t_tree*, char[], char[], char[]);
 
 mot* genMotAleat(t_tree* arbre_mot);
+void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_ARBRE_H
