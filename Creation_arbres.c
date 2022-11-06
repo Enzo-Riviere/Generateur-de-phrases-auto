@@ -61,7 +61,7 @@ void creation_arbres(){
     FILE* fichier = NULL;
     char chaine[TAILLE_MAX] = "";
 
-    fichier = fopen("C:/Users/yael1/OneDrive/Bureau/Generateur-de-phrases-auto/test.txt", "r+");
+    fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/test.txt", "r+");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
