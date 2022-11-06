@@ -56,7 +56,7 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 
 
 mot* genMotAleat(t_tree* arbre_mot) {
-    srand(1);
+    //srand(3);
     p_node temp = arbre_mot->root;
     int i = 1, nombre_enfant, f = 0;
     while (i) {
@@ -101,4 +101,119 @@ mot* genMotAleat(t_tree* arbre_mot) {
     printf("hhhhhhhhhhhhhhhhhhh\n");
      */
     return temp->si_fin_mot;
+}
+
+char* accord_flechies_Adj(mot* nom_choisi, mot* adjectif_choisi, char type[]) {
+    //On suppose le nom à un suel flechie
+    return NULL;
+}
+
+
+/*
+char* donne_flechoe(mot* mot_choisi) {
+    char caractere_important;
+    caractere_important = ligne[2];
+    switch(caractere_important) {
+        //En regarder les information pour chaque mots, on se rends compte que 'Nom', 'Ver', 'Adj', 'Adv' ont un troisième carctère unique
+        case 'm' : {
+            return "Nom";
+            break;
+        }
+        case 'r': {
+            return "Verbe";
+            break;
+        }
+        case 'j': {
+            return "Adjectif";
+            break;
+        }
+        case 'v': {
+            return  "Adverbe";
+            break;
+        }
+        default : {
+            //le cas où c'est un déterminat ou une préposistion, on l'ignore
+            return "Non";
+            break;
+        }
+    }
+}*/
+
+
+void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
+    mot *nom_debut, *adjectif, *verbe1, *nom_fin;
+    nom_debut = genMotAleat(&Nom);
+    nom_fin = genMotAleat(&Nom);
+    adjectif = genMotAleat(&Adj);
+    verbe1 = genMotAleat(&Verb);
+
+    /*
+    printf(nom_debut->flechies.head->value);
+    printf("\t");
+    printf(nom_debut->nom_mot);
+    printf("\t");
+    printf(nom_debut->forme_grammatical.head->value);
+    printf("\n");
+    printf(adjectif->flechies.head->value);
+    printf("\t");
+    printf(adjectif->nom_mot);
+    printf("\t");
+    printf(adjectif->forme_grammatical.head->value);
+    printf("\n");
+    printf(verbe1->flechies.head->value);
+    printf("\t");
+    printf(verbe1->nom_mot);
+    printf("\t");
+    printf(verbe1->forme_grammatical.head->value);
+    printf("\n");
+
+    printf(nom_debut->flechies.head->value);
+    printf("\t");
+    printf(nom_debut->nom_mot);
+    printf("\t");
+    printf(nom_debut->forme_grammatical.head->value);
+    printf("\n");
+     */
+
+    if (cas == 1) {
+        // cas 1 : nom - adjectif - verbe - nom
+        printf(nom_debut->nom_mot);
+        printf(" ");
+        printf(adjectif->nom_mot);
+        printf(" ");
+        printf(verbe1->nom_mot);
+        printf(" ");
+        printf(nom_fin->nom_mot);
+        printf(".\n");
+    }
+    else {
+        if (cas == 2) {
+            // cas 2 : nom - 'qui' - verbe - verbe - nom - adjectif
+            mot* verbe2;
+            verbe2 = genMotAleat(&Verb);
+            printf(nom_debut->nom_mot);
+            printf(" qui ");
+            printf(verbe1->nom_mot);
+            printf(" ");
+            printf(verbe2->nom_mot);
+            printf(" ");
+            printf(nom_fin->nom_mot);
+            printf(" ");
+            printf(adjectif->nom_mot);
+            printf(".\n");
+        }
+        else {
+            //cas 3 : nom - adjectif - verbe - adverbe
+            mot *adverbe;
+            adverbe = genMotAleat(&Adv);
+            printf(nom_debut->nom_mot);
+            printf(" ");
+            printf(adjectif->nom_mot);
+            printf(" ");
+            printf(verbe1->nom_mot);
+            printf(" ");
+            printf(adverbe->nom_mot);
+            printf(".\n");
+        }
+    }
 }

@@ -116,3 +116,76 @@ void creation_arbres(){
         printf("Impossible d'ouvrir le fichier test.txt");
     }
 }
+
+t_tree* creation_arbres_et_donne(){
+
+    t_tree arbre_nom = createEmptyTree();
+    t_tree arbre_verbe = createEmptyTree();
+    t_tree arbre_adj = createEmptyTree();
+    t_tree arbre_adv = createEmptyTree();
+    t_tree* arbre_mot;
+    arbre_mot = (t_tree*) malloc(sizeof(t_tree) * 4);
+    *(arbre_mot) = arbre_nom;
+    *(arbre_mot + 1) = arbre_verbe;
+    *(arbre_mot + 2) = arbre_adj;
+    *(arbre_mot + 3) = arbre_adv;
+
+    FILE* fichier = NULL;
+    char chaine[TAILLE_MAX] = "";
+
+    fichier = fopen("D:\\document\\Generateur-de-phrases-auto\\dictionnaire_non_accentue.txt", "r+");
+
+    //Si le fichier n'est pas vide
+    if (fichier != NULL)
+    {
+        //tant qu'on n'est pas à la dernière ligne
+        while (fgets(chaine, TAILLE_MAX, fichier) != NULL){
+
+            char chaine1[TAILLE_MAX] = "";
+            char chaine2[TAILLE_MAX] = "";
+            char chaine3[TAILLE_MAX] = "";
+
+            fscanf(fichier, "%s   %s   %s", &chaine1, &chaine2, &chaine3);
+
+            char type = typeIndentify(chaine3);
+
+            switch (type) {
+                // n = Nom
+                case 'n' :{
+                    ajout_mot(&arbre_nom, chaine2, chaine1, chaine3);
+                    break;
+                }
+                    // v = verbe
+                case 'v':{
+                    ajout_mot(&arbre_verbe,chaine2, chaine1, chaine3);
+                    break;
+                }
+                    // j = Adjectif
+                case 'j' :{
+                    ajout_mot(&arbre_adj,chaine2, chaine1, chaine3);
+                    break;
+                }
+                    // a = adverbe
+                case 'a':{
+                    ajout_mot(&arbre_adv,chaine2, chaine1, chaine3);
+                    break;
+                }
+                default : {
+                    //le cas où c'est un déterminat ou une préposistion, on l'ignore
+                    break;
+                }
+
+            }
+
+            //printf("%s\n%s\n%s\n\n\n", chaine1, chaine2, chaine3);
+
+        }
+
+        fclose(fichier);
+    }
+    else
+    {
+        printf("Impossible d'ouvrir le fichier test.txt");
+    }
+    return arbre_mot;
+}
