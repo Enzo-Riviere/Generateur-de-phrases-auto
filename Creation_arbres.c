@@ -105,7 +105,7 @@ void creation_arbres(){
 
             }
 
-            //printf("%s\n%s\n%s\n\n\n", chaine1, chaine2, chaine3);
+            printf("%s\n%s\n%s\n\n\n", chaine1, chaine2, chaine3);
 
         }
 
@@ -130,22 +130,18 @@ t_tree* creation_arbres_et_donne(){
     *(arbre_mot + 2) = arbre_adj;
     *(arbre_mot + 3) = arbre_adv;
 
-    FILE* fichier = NULL;
-    char chaine[TAILLE_MAX] = "";
+    //FILE* fichier = NULL;
+    char chaine1[TAILLE_MAX] = "";
+    char chaine2[TAILLE_MAX] = "";
+    char chaine3[TAILLE_MAX] = "";
 
-    fichier = fopen("D:\\document\\Generateur-de-phrases-auto\\dictionnaire_non_accentue.txt", "r+");
+    FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
     {
         //tant qu'on n'est pas à la dernière ligne
-        while (fgets(chaine, TAILLE_MAX, fichier) != NULL){
-
-            char chaine1[TAILLE_MAX] = "";
-            char chaine2[TAILLE_MAX] = "";
-            char chaine3[TAILLE_MAX] = "";
-
-            fscanf(fichier, "%s   %s   %s", &chaine1, &chaine2, &chaine3);
+        while (fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3) != EOF){
 
             char type = typeIndentify(chaine3);
 
