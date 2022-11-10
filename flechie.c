@@ -55,6 +55,9 @@ char** separeCatGramm(char* chaine) {
 
 
 flechies obtFlechNom(mot nom_choisi) {
+    /*
+     * Cette fonction permet d'obtenir le flechie du nom.
+     */
     srand(time(NULL));
     flechies res;
     p_cell_mot temp_f = nom_choisi.flechies.head, temp_g = nom_choisi.forme_grammatical.head;
