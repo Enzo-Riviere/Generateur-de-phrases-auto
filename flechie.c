@@ -73,9 +73,12 @@ flechies obtFlechNom(mot nom_choisi) {
 }
 
 
-int bonFlechiesAdj(t_std_list_mot forme_nom, t_std_list_mot form_adj) {
-    char typeNom[4], genreNom[7], nbNom[3];
-    fscanf(forme_nom.head->value, "%s:%s+%s", &typeNom, &genreNom, &nbNom);
+int obtFlechAdj(t_std_list_mot forme_nom, t_std_list_mot form_adj) {
+    /*
+     * cette fonction donne le flechie qui correspond à l'adjectif qui est accordé.
+     */
+    char typeNom[4], genreNom[7], nbNom[3], **tempo;
+
 }
 /*
 flechies obtFlechAdj(mot nom_choisi, mot adj_choisi) {
