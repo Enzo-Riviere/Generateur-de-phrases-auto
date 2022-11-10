@@ -28,7 +28,7 @@ void remplFlechi(p_cell_mot flechie, p_cell_mot forme_grammatical, flechies *ad_
     }
      */
     ad_fle->nom_mot[i] = '\0';
-    copieProfonde(flechie->value, &(ad_fle->nom_mot));
+    copieProfonde(flechie->value, (ad_fle->nom_mot));
     ad_fle->forme_grammatical.head = forme_grammatical;
 }
 
@@ -42,7 +42,7 @@ char** separeCatGramm(char* chaine) {
         res = NULL;
     }
     while(tempo != NULL) {
-        copieProfonde(tempo, res + (i - 1));
+        copieProfonde(tempo, *(res + (i - 1)));
         tempo = strtok(chaine,":");
         if(tempo != NULL) {
             i++;
