@@ -32,7 +32,10 @@ void remplFlechi(p_cell_mot flechie, p_cell_mot forme_grammatical, flechies *ad_
     ad_fle->forme_grammatical.head = forme_grammatical;
 }
 
-char** separeCatGramm(char* chaine) {
+char** separeCaractGramm(char* chaine) {
+    /*
+     * Cette fonction sert à separer la chaine de caratères forme grammatical
+     */
     char** res, *tempo;
     int i = 1;
     res = malloc(sizeof(char *));
