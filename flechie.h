@@ -24,6 +24,6 @@ typedef struct{
     t_std_list_mot flechies;
 }mot;
 
-
+void copieProfonde(char* chaine_origine, char* chaine_cible);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_FLECHIE_H
