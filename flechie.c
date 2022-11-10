@@ -15,13 +15,9 @@ void copieProfonde(char* chaine_origine, char* chaine_cible) {
     int i = 0;
     while (chaine_origine[i] != '\0') {
         *(chaine_cible + i) = chaine_origine[i];
-        printf("%c = %c\n", *(chaine_cible + i), chaine_origine[i]);
         i++;
     }
     *(chaine_cible + i) = '\0';
-    printf("a l'interieur de la fonction\n");
-    printf((chaine_cible));
-    printf("\n");
 }
 
 void remplFlechi(p_cell_mot flechie, p_cell_mot forme_grammatical, flechies *ad_fle) {
