@@ -81,6 +81,13 @@ char** separeCaractGramm(char* chaine) {
     return NULL;
 }
 
+char* chaProch(char* phrase, char lettre) {
+    int i = 0;
+    while((*(phrase + i + 1 ) == '\0') && (*(phrase + i) == lettre)) {
+        i++;
+    }
+    return (phrase + i + 1 );
+}
 
 flechies obtFlechNom(mot nom_choisi) {
     /*
