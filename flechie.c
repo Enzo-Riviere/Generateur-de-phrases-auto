@@ -134,8 +134,10 @@ int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi) {
     flechies res;
     p_cell_mot tempo_gramm = adj_choisi.forme_grammatical.head, tempo_flech;
-    while((tempo_gramm != NULL) && bonFlechAdj(nom_choisi.forme_grammatical, tempo_gramm)) {
-        tempo = tempo->next;
+    while((tempo_gramm != NULL) && bonFlechAdj(nom_choisi.forme_grammatical.head, tempo_gramm)) {
+        tempo_gramm = tempo_gramm->next;
+        tempo_flech = tempo_flech->next;
     }
-    remplFlechi()
+    remplFlechi(tempo_flech, tempo_gramm, &res);
+    return res;
 }
