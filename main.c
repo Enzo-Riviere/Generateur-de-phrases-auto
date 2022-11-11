@@ -14,17 +14,16 @@ int main() {
     printf("\n");
     printf(resultat->nom_mot);*/
 
-    //creation_arbres();
-    /*
+    creation_arbres();
+
     t_tree* arbre_mot;
     arbre_mot = creation_arbres_et_donne();
-     */
+
     //t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve;
     //genPhraseAleat(*(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 3), *(arbre_mot + 1), 2);
-    char test[] = "tester:Yaba+bad+dou", *resultat;
-    printf("debut du test\n");
-    resultat = chaProch(test, ':');
-    printf("fin du test et resultat ci dessus\n");
-    printf(resultat);
+
+    flechies tempo;
+    tempo = obtFlechNom(*genMotAleat(arbre_mot));
+    printf(tempo.nom_mot);
     return 0;
 }
