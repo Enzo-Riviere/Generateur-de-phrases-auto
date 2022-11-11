@@ -32,28 +32,53 @@ void remplFlechi(p_cell_mot flechie, p_cell_mot forme_grammatical, flechies *ad_
     ad_fle->forme_grammatical.head = forme_grammatical;
 }
 
+
+
 char** separeCaractGramm(char* chaine) {
     /*
      * Cette fonction sert à separer la chaine de caratères forme grammatical
+     * cette fonction est abandonné
      */
+    /*
+    printf("initialisation\n");
     char** res, *tempo;
     int i = 1;
     res = malloc(sizeof(char *));
+    printf("premirer strok\n");
     tempo = strtok(chaine,":");
+    printf("condition if\n");
     if(tempo == NULL) {
         free(res);
         res = NULL;
     }
-    while(tempo != NULL) {
-        copieProfonde(tempo, *(res + (i - 1)));
-        tempo = strtok(chaine,":");
-        if(tempo != NULL) {
-            i++;
-            res = realloc(res, sizeof(char*) * i);
+    else {
+        int j;
+        printf("boucle\n");
+        while (tempo != NULL) {
+            printf("start %d\n", i);
+            copieProfonde(tempo, *(res + (i - 1)));
+            j = 0;
+            while (tempo[j] != '\0') {
+                *(*(res + (i - 1)) + j) = tempo[j];
+                j++;
+            }
+            *(*(res + (i - 1)) + j) = '\0';
+            printf(*(res + (i - 1)));
+            printf("\n");
+            tempo = strtok(NULL, ":");
+            printf("condition if 2 \n");
+            if (tempo != NULL) {
+                i++;
+                printf("la nouvelle taille %d\n", sizeof(char*) * i);
+                res = realloc(res, (sizeof(char *) * i));
+            }
+            printf("end %d\n", i);
         }
+        printf("out\n");
     }
+     */
     //res = realloc(res, sizeof(char*) * (i - 1));
-    return res;
+    return NULL;
 }
 
 
