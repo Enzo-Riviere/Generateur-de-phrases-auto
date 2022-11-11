@@ -105,16 +105,37 @@ flechies obtFlechNom(mot nom_choisi) {
 }
 
 
-int obtFlechAdj(t_std_list_mot forme_nom, t_std_list_mot form_adj) {
+int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
     /*
-     * cette fonction donne le flechie qui correspond à l'adjectif qui est accordé.
+     * cette fonction dit si le flechie si l'adjectif qui est accordé.
      */
-    char typeNom[4], genreNom[7], nbNom[3], **tempo;
-
+    char signi_nom, signi_adj **tempo_nom = (char**) malloc(sizeof(char*) * 2), **tempo_adj = (char**) malloc(sizeof(char*) * 2);
+    int res = 0;
+    *(tempo_nom) = chaProch(forme_nom->value, ':');
+    *(tempo_nom + 1 ) = chaProch(*(tempo_nom), '+');
+    *(tempo_adj) = chaProch(forme_adj->value, ':');
+    *(tempo_adj + 1 ) = chaProch(*(tempo_adj), '+');
+    while((*(*(tempo_adj)) != '\0') && !(res)) {
+    signi_nom = *(*(tempo_nom));
+    signi_adj = *(*(tempo_adj));
+    if ((signi_nom != 'I') {
+        res = ((signi_nom == signi_adj) || (signi_adj == 'I'))
+    }
+    else {
+        res = ((signi_adj == 'I') || (signi_adj == 'M'));
+    }
+    signi_nom = *(*(tempo_nom + 1));
+    signi_adj = *(*(tempo_adj + 1));
+    res = res && (signi_nom == signi_adj);
+    }
+    return res;
 }
-/*
-flechies obtFlechAdj(mot nom_choisi, mot adj_choisi) {
+
+flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi) {
     flechies res;
-
+    p_cell_mot tempo_gramm = adj_choisi.forme_grammatical.head, tempo_flech;
+    while((tempo_gramm != NULL) && bonFlechAdj(nom_choisi.forme_grammatical, tempo_gramm)) {
+        tempo = tempo->next;
+    }
+    remplFlechi()
 }
- */
