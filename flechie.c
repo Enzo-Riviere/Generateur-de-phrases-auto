@@ -83,7 +83,7 @@ char** separeCaractGramm(char* chaine) {
 
 char* chaProch(char* phrase, char lettre) {
     int i = 0;
-    while((*(phrase + i + 1 ) == '\0') && (*(phrase + i) == lettre)) {
+    while((*(phrase + i + 1 ) != '\0') && (*(phrase + i) != lettre)) {
         i++;
     }
     return (phrase + i + 1 );
