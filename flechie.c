@@ -109,7 +109,7 @@ int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
     /*
      * cette fonction dit si le flechie si l'adjectif qui est accordé.
      */
-    char signi_nom, signi_adj **tempo_nom = (char**) malloc(sizeof(char*) * 2), **tempo_adj = (char**) malloc(sizeof(char*) * 2);
+    char signi_nom, signi_adj,**tempo_nom = (char**) malloc(sizeof(char*) * 2), **tempo_adj = (char**) malloc(sizeof(char*) * 2);
     int res = 0;
     *(tempo_nom) = chaProch(forme_nom->value, ':');
     *(tempo_nom + 1 ) = chaProch(*(tempo_nom), '+');
@@ -118,8 +118,8 @@ int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
     while((*(*(tempo_adj)) != '\0') && !(res)) {
     signi_nom = *(*(tempo_nom));
     signi_adj = *(*(tempo_adj));
-    if ((signi_nom != 'I') {
-        res = ((signi_nom == signi_adj) || (signi_adj == 'I'))
+    if ((signi_nom != 'I')) {
+        res = ((signi_nom == signi_adj) || (signi_adj == 'I'));
     }
     else {
         res = ((signi_adj == 'I') || (signi_adj == 'M'));
