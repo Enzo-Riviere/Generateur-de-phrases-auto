@@ -133,7 +133,7 @@ t_tree* creation_arbres_et_donne(){
     FILE* fichier = NULL;
     char chaine[TAILLE_MAX] = "";
 
-    fichier = fopen("D:\\document\\Generateur-de-phrases-auto\\dictionnaire_non_accentue.txt", "r+");
+    fichier = fopen("D:/essaie/Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r+");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
