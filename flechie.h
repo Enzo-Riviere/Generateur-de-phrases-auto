@@ -12,7 +12,7 @@
 
 //Création de la structure de chaque mot fléchie :
 typedef struct {
-    char nom_mot[100];
+    char* nom_mot;
     t_std_list_mot forme_grammatical;
 }flechies;
 
