@@ -26,5 +26,6 @@ typedef struct{
 
 void copieProfonde(char* chaine_origine, char* chaine_cible);
 char** separeCaractGramm(char* chaine);
+char* chaProch(char* phrase, char lettre);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_FLECHIE_H
