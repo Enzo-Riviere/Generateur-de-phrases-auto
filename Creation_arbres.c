@@ -59,22 +59,17 @@ void creation_arbres(){
 
 
     FILE* fichier = NULL;
-    char chaine[TAILLE_MAX] = "";
+    char chaine1[TAILLE_MAX] = "";
+    char chaine2[TAILLE_MAX] = "";
+    char chaine3[TAILLE_MAX] = "";
 
-    fichier = fopen("C:/Users/yael1/OneDrive/Bureau/Generateur-de-phrases-auto/test.txt", "r+");
+    fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/test.txt", "r+");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
     {
         //tant qu'on n'est pas à la dernière ligne
-        while (fgets(chaine, TAILLE_MAX, fichier) != NULL){
-
-            char chaine1[TAILLE_MAX] = "";
-            char chaine2[TAILLE_MAX] = "";
-            char chaine3[TAILLE_MAX] = "";
-
-            fscanf(fichier, "%s   %s   %s", &chaine1, &chaine2, &chaine3);
-
+        while (fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3) != EOF){
             char type = typeIndentify(chaine3);
 
             switch (type) {
@@ -105,7 +100,7 @@ void creation_arbres(){
 
             }
 
-            //printf("%s\n%s\n%s\n\n\n", chaine1, chaine2, chaine3);
+            printf("%s\n%s\n%s\n\n\n", chaine1, chaine2, chaine3);
 
         }
 
@@ -130,16 +125,19 @@ t_tree* creation_arbres_et_donne(){
     *(arbre_mot + 2) = arbre_adj;
     *(arbre_mot + 3) = arbre_adv;
 
-    FILE* fichier = NULL;
-    char chaine[TAILLE_MAX] = "";
+    //FILE* fichier = NULL;
+    char chaine1[TAILLE_MAX] = "";
+    char chaine2[TAILLE_MAX] = "";
+    char chaine3[TAILLE_MAX] = "";
 
-    fichier = fopen("D:/Program Files (x86)/document_efrei/Semestre 03/TI301 - Algorithmique et structure de données 2 (L2, L2-BN, L2-R - 2223S3)/Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r+");
+    //FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
+    FILE* fichier = fopen("C:\\Users\\yael1\\OneDrive\\Bureau\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
     {
         //tant qu'on n'est pas à la dernière ligne
-        while (fgets(chaine, TAILLE_MAX, fichier) != NULL){
+        while (fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3) != EOF){
 
             char chaine1[TAILLE_MAX] = "";
             char chaine2[TAILLE_MAX] = "";
@@ -185,12 +183,12 @@ t_tree* creation_arbres_et_donne(){
     }
     else
     {
-        printf("Impossible d'ouvrir le fichier test.txt");
+        printf("Impossible d'ouvrir le fichier\n");
     }
     return arbre_mot;
 }
 
-t_tree* creation_arbres_et_donne_vieux(){
+/*t_tree* creation_arbres_et_donne_vieux(){
 
     t_tree arbre_nom = createEmptyTree();
     t_tree arbre_verbe = createEmptyTree();
@@ -212,13 +210,7 @@ t_tree* creation_arbres_et_donne_vieux(){
     if (fichier != NULL)
     {
         //tant qu'on n'est pas à la dernière ligne
-        while (fgets(chaine, TAILLE_MAX, fichier) != NULL){
-
-            char chaine1[TAILLE_MAX] = "";
-            char chaine2[TAILLE_MAX] = "";
-            char chaine3[TAILLE_MAX] = "";
-
-            fscanf(fichier, "%s   %s   %s", &chaine1, &chaine2, &chaine3);
+        while (fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3) != EOF){
 
             char type = typeIndentify(chaine3);
 
@@ -261,4 +253,4 @@ t_tree* creation_arbres_et_donne_vieux(){
         printf("Impossible d'ouvrir le fichier test.txt");
     }
     return arbre_mot;
-}
+}*/
