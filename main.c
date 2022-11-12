@@ -62,7 +62,7 @@ int main() {
                         }
 
                         //Appeler la fonction pour les phrases de bases avec la forme grammaticale demandé
-
+                        genPhraseAleat(arbre_nom, arbre_adj, arbre_adve, arbre_verb, choix_grammaticale);
                         break;
                     }
                     case 2: {
@@ -78,6 +78,7 @@ int main() {
                         }
 
                         //Appeler la fonction pour les phrases fléchies avec la forme grammaticale demandé
+                        genPhraseAleatFlech(arbre_nom, arbre_adj, arbre_adve, arbre_verb, arbre_det, choix_grammaticale);
                         break;
                     }
 
