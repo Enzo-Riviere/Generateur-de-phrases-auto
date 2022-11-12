@@ -14,7 +14,13 @@ int main() {
     //Création des arbres :
     t_tree* arbre_mot;
     arbre_mot = creation_arbres_et_donne();
-    t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve;
+    t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve, arbre_det;
+    arbre_nom = *(arbre_mot);
+    arbre_adj = *(arbre_mot + 2);
+    arbre_adve = *(arbre_mot + 3);
+    arbre_verb = *(arbre_mot + 1);
+    arbre_det = *(arbre_mot + 4);
+
 
     int arreter = 0;
     while(arreter != 2) {
