@@ -39,6 +39,11 @@ char typeIndentify(char *ligne) {
             return 'a';
             break;
         }
+        case 't':{
+            // t = determinant
+            return 'd';
+            break;
+        }
         default : {
             //le cas où c'est un déterminat ou une préposistion, on l'ignore
             return '0';
@@ -56,7 +61,6 @@ void creation_arbres(){
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adj = createEmptyTree();
     t_tree arbre_adv = createEmptyTree();
-
 
     FILE* fichier = NULL;
     char chaine1[TAILLE_MAX] = "";
@@ -118,13 +122,14 @@ t_tree* creation_arbres_et_donne(){
     t_tree arbre_verbe = createEmptyTree();
     t_tree arbre_adj = createEmptyTree();
     t_tree arbre_adv = createEmptyTree();
+    t_tree arbre_det = createEmptyTree();
     t_tree* arbre_mot;
-    arbre_mot = (t_tree*) malloc(sizeof(t_tree) * 4);
+    arbre_mot = (t_tree*) malloc(sizeof(t_tree) * 5);
     *(arbre_mot) = arbre_nom;
     *(arbre_mot + 1) = arbre_verbe;
     *(arbre_mot + 2) = arbre_adj;
     *(arbre_mot + 3) = arbre_adv;
-
+    *(arbre_mot + 4) = arbre_det;
     //FILE* fichier = NULL;
     char chaine1[TAILLE_MAX] = "";
     char chaine2[TAILLE_MAX] = "";
@@ -166,6 +171,11 @@ t_tree* creation_arbres_et_donne(){
                     // a = adverbe
                 case 'a':{
                     ajout_mot(&arbre_adv,chaine2, chaine1, chaine3);
+                    break;
+                }
+                case 'd':{
+                    //d = determinant
+                    ajout_mot(&arbre_det, chaine2, chaine1, chaine3);
                     break;
                 }
                 default : {
