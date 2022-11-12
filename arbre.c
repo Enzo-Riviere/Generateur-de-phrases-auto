@@ -349,6 +349,7 @@ int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj) {
     //printf("debut de bonFlechVer\n");
     //printf("err");
     char signi_nom, signi_adj,**tempo_nom = (char**) malloc(sizeof(char*) * 2), **tempo_adj = (char**) malloc(sizeof(char*) * 3);
+    //printf("eur\n");
     int res = 0;
     //printf("initilisation\n");
     if((forme_adj->value[6] != 'f') && ((forme_adj->value[4] != 'P') || (forme_adj->value[5] != 'P') || (forme_adj->value[6] != 'r') || (forme_adj->value[6] != 'e'))) {
@@ -450,6 +451,7 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
     nom_fin_mot = genMotAleat(&Nom);
     adjectif_mot = genMotAleat(&Adj);
     verbe1_mot = genMotAleat(&Verb);
+
     detereminant_debut_mot = genMotAleat(&Det);
     detereminant_fin_mot = genMotAleat(&Det);
     flechies nom_debut, adjectif, verbe1, nom_fin, detereminant_debut, detereminant_fin;
@@ -538,10 +540,8 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
             //cas 3 : nom - adjectif - verbe - adverbe
             mot *adverbe;
             adverbe = genMotAleat(&Adv);
-           /*
             printf(detereminant_debut.nom_mot);
             printf(" ");
-            */
             printf(nom_debut.nom_mot);
             printf(" ");
             printf(adjectif.nom_mot);
