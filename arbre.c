@@ -426,7 +426,7 @@ flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
     //remplFlechi(tempo_flech, tempo_gramm, &res);
     //printf("adjectif == NULL : %d\n",(tempo_flech == NULL));
     if (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm))) {
-        //printf("cas ou on n'a rien trouve\n");
+        printf("cas ou on n'a rien trouve\n");
         res = obtFlechVer(nom_choisi, *genMotAleat(&t), t);
     }
     else {
@@ -454,11 +454,16 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
 
     detereminant_debut_mot = genMotAleat(&Det);
     detereminant_fin_mot = genMotAleat(&Det);
+
+     //printf("generation mot fait\n");
     flechies nom_debut, adjectif, verbe1, nom_fin, detereminant_debut, detereminant_fin;
     nom_debut = obtFlechNom(*nom_debut_mot);
     nom_fin = obtFlechNom(*nom_fin_mot);
+    //printf("generation mot fait\n");
     adjectif = obtFlechAdj(nom_debut, *adjectif_mot, Adj);
-    verbe1 = obtFlechVer(nom_debut, *verbe1_mot, Verb);
+    //printf("generation adjetcif fait\n");
+     verbe1 = obtFlechVer(nom_debut, *verbe1_mot, Verb);
+    //printf("generation verbe fait\n");
     detereminant_debut = obtFlechAdj(nom_debut, *detereminant_debut_mot, Det);
     detereminant_fin = obtFlechAdj(nom_fin, *detereminant_fin_mot, Det);
     /*
@@ -488,7 +493,7 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
     printf(nom_debut->forme_grammatical.head->value);
     printf("\n");
      */
-
+    //printf("les fichiers ont bien été généré\n");
     if (cas == 1) {
         // cas 1 : nom - adjectif - verbe - nom
 
