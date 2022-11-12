@@ -28,7 +28,7 @@ void remplFlechi(p_cell_mot flechie, p_cell_mot forme_grammatical, flechies *ad_
     }
      */
     ad_fle->nom_mot[i] = '\0';
-    copieProfonde(flechie->value, (ad_fle->nom_mot));
+    //copieProfonde(flechie->value, (ad_fle->nom_mot));
     ad_fle->forme_grammatical.head = forme_grammatical;
 }
 
