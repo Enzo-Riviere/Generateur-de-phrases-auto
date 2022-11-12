@@ -41,7 +41,9 @@ char typeIndentify(char *ligne) {
         }
         case 't':{
             // t = determinant
-            return 'd';
+            if ((ligne[0] == 'D') && (ligne[1] == 'e'))
+                return 'd';
+            return '0';
             break;
         }
         default : {
