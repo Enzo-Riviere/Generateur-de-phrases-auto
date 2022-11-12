@@ -292,26 +292,35 @@ flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t) {
     printf("\n");
     */
     flechies res;
-    p_cell_mot tempo_gramm = adj_choisi.forme_grammatical.head, tempo_flech = adj_choisi.flechies.head;
-    p_cell_mot  sure_gramm = tempo_gramm, sure_flech = tempo_flech;
-    int correct;
-    //printf("debut de la boucle dans obtFlechAdj\n");
-    while((tempo_gramm != NULL) && (!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
-        //correct = bonFlechAdj(nom_choisi.forme_grammatical.head, tempo_gramm);
-        if (bonFlechAdj(nom_choisi.forme_grammatical.head, tempo_gramm) && (!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
-            sure_gramm = tempo_gramm;
-            sure_flech = tempo_flech;
+    p_cell_mot tempo_gramm, tempo_flech;
+    p_cell_mot sure_gramm, sure_flech;
+    do {
+        tempo_gramm = adj_choisi.forme_grammatical.head;
+        tempo_flech = adj_choisi.flechies.head;
+        sure_gramm = tempo_gramm;
+        sure_flech = tempo_flech;
+        //int correct;
+        //printf("debut de la boucle dans obtFlechAdj\n");
+        while ((tempo_gramm != NULL) &&
+               (!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
+            //correct = bonFlechAdj(nom_choisi.forme_grammatical.head, tempo_gramm);
+            if (bonFlechAdj(nom_choisi.forme_grammatical.head, tempo_gramm) &&
+                (!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
+                sure_gramm = tempo_gramm;
+                sure_flech = tempo_flech;
+            }
+            /*
+            printf(tempo_gramm->value);
+            printf("\n");
+            printf(tempo_flech->value);
+            printf("\n");
+            printf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
+             */
+            tempo_gramm = tempo_gramm->next;
+            tempo_flech = tempo_flech->next;
         }
-        /*
-        printf(tempo_gramm->value);
-        printf("\n");
-        printf(tempo_flech->value);
-        printf("\n");
-        printf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
-         */
-        tempo_gramm = tempo_gramm->next;
-        tempo_flech = tempo_flech->next;
-    }
+        adj_choisi = *genMotAleat(&t);
+    } while(!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)));
     //printf("fin de la boucle dans obtFlechAdj\n");
     //remplFlechi(tempo_flech, tempo_gramm, &res);
     //printf("adjectif == NULL : %d\n",(tempo_flech == NULL));
@@ -337,7 +346,8 @@ int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj) {
     /*
      * cette fonction dit si le flechie si le verbe qui est accordé.
      */
-    printf("debut de bonFlechVer\n");
+    //printf("debut de bonFlechVer\n");
+    //printf("err");
     char signi_nom, signi_adj,**tempo_nom = (char**) malloc(sizeof(char*) * 2), **tempo_adj = (char**) malloc(sizeof(char*) * 3);
     int res = 0;
     //printf("initilisation\n");
@@ -485,8 +495,10 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
 
         printf(nom_debut.nom_mot);
         printf(" ");
+
         printf(adjectif.nom_mot);
         printf(" ");
+
         printf(verbe1.nom_mot);
         printf(" ");
 
