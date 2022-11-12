@@ -5,6 +5,7 @@
 #include "arbre.h"
 #include "fonction.h"
 #include "flechie.h"
+#include <Time.h>
 
 #define TAILLE_MAX 25
 
@@ -56,7 +57,7 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 
 
 mot* genMotAleat(t_tree* arbre_mot) {
-    //srand(3);
+    srand(time(NULL));
     p_node temp = arbre_mot->root;
     int i = 1, nombre_enfant, f = 0;
     while (i) {
