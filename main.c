@@ -12,7 +12,7 @@ int main() {
     printf("Hello, World!\n");
 
     //Création des arbres :
-    t_tree* arbre_mot;
+    t_tree *arbre_mot;
     arbre_mot = creation_arbres_et_donne();
     t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve, arbre_det;
     arbre_nom = *(arbre_mot);
@@ -23,7 +23,7 @@ int main() {
 
 
     int arreter = 0;
-    while(arreter != 2) {
+    while (arreter != 2) {
         int choix = 0, menu_1 = 0, masque = 0, ligne, colonne;
 
 
@@ -78,7 +78,7 @@ int main() {
                         }
 
                         //Appeler la fonction pour les phrases fléchies avec la forme grammaticale demandé
-                        genPhraseAleatFlech(arbre_nom, arbre_adj, arbre_adve, arbre_verb, arbre_det, choix_grammaticale);
+                        genPhraseAleatFlech(arbre_nom, arbre_adj, arbre_adve, arbre_verb, arbre_det,choix_grammaticale);
                         break;
                     }
 
@@ -95,17 +95,17 @@ int main() {
                 }
 
                 switch (choix3) {
-                    case 1:{
+                    case 1: {
                         char base[25];
                         printf("Quel mot de base cherchez-vous ?\n");
-                        scanf("%s",base);
+                        scanf("%s", base);
                         recherche_base(base, *(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 1), *(arbre_mot + 3));
                         break;
                     }
-                    case 2 :{
+                    case 2 : {
                         char flechie[25];
                         printf("Quel mot flechie cherchez-vous ?\n");
-                        scanf("%s",flechie);
+                        scanf("%s", flechie);
                         //appeler la fonction qui recherchera
                         break;
                     }
