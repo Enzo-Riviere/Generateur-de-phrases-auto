@@ -131,18 +131,13 @@ t_tree* creation_arbres_et_donne(){
     char chaine3[TAILLE_MAX] = "";
 
     FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
+    //FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto\\test.txt", "r");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
     {
         //tant qu'on n'est pas à la dernière ligne
         while (fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3) != EOF){
-
-            char chaine1[TAILLE_MAX] = "";
-            char chaine2[TAILLE_MAX] = "";
-            char chaine3[TAILLE_MAX] = "";
-
-            fscanf(fichier, "%s   %s   %s", &chaine1, &chaine2, &chaine3);
 
             char type = typeIndentify(chaine3);
 

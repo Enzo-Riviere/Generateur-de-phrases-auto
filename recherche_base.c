@@ -7,7 +7,12 @@
 //fonction qui vérifie si le mot est dans l'arbre
 int mot_dans_arbre(t_tree arbre, char mot[]){
     p_node tmp = arbre.root;
-    int i = 0;
+    int i = 0, taille_mot = 0;
+    while(mot[i] != '\0'){
+        taille_mot ++;
+        i++;
+    }
+    i = 0;
     //On parcourt le mot lettre par lettre
     while(mot[i] != '\0'){
         //Si la lettre du mot est dans le tableau
@@ -30,19 +35,25 @@ int mot_dans_arbre(t_tree arbre, char mot[]){
 
 //
 void recherche_base(char base[], t_tree arbre_nom, t_tree arbre_adjectif, t_tree arbre_verbe, t_tree arbre_adverbe) {
+    int res = 0;
     if (mot_dans_arbre(arbre_nom, base)) {
-        printf("La base %s est un nom", base);
+        printf("La base %s est un nom\n", base);
+        res = 1;
     }
-    else if (mot_dans_arbre(arbre_adjectif, base)){
-        printf("La base %s est un adjectif", base);
+    if (mot_dans_arbre(arbre_adjectif, base)){
+        printf("La base %s est un adjectif\n", base);
+        res = 1;
     }
-    else if (mot_dans_arbre(arbre_verbe, base)){
-        printf("La base %s est un verbe", base);
+    if (mot_dans_arbre(arbre_verbe, base)){
+        printf("La base %s est un verbe\n", base);
+        res = 1;
     }
-    else if(mot_dans_arbre(arbre_adverbe, base)){
-        printf("La base %s est un adverbe", base);
+    if(mot_dans_arbre(arbre_adverbe, base)){
+        printf("La base %s est un adverbe\n", base);
+        res = 1;
     }
-    else{
-        printf("Le mot n'est pas dans le dictionnaire");
+    if(res == 0){
+        printf("Le mot n'est pas une base ou n'est pas dans le dictionnaire");
     }
 }
+
