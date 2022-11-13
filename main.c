@@ -29,7 +29,7 @@ int main() {
 
         //Menu 1
         while (choix < 1 || choix > 2) {
-            printf("Que voulez-vous faire ?");
+            printf("Que voulez-vous faire ?\n");
             printf("1. Generer une phrase automatiquement.\n");
             printf("2. Rechercher un mot.\n");
             printf("Veuillez saisir une valeur entre 1 et 2.\n");
@@ -51,13 +51,12 @@ int main() {
                 switch (choix2) {
                     case 1 : {
                         int choix_grammaticale = 0;
-                        while (choix_grammaticale < 1 || choix_grammaticale > 4) {
+                        while (choix_grammaticale < 1 || choix_grammaticale > 3) {
                             printf("Quelle forme de phrase voulez-vous ?\n");
-                            printf("1. nom – adjectif – verbe – nom\n");
-                            printf("2. nom – ‘qui’ – verbe – verbe – nom – adjectif\n");
-                            printf("3. \n");
-                            printf("4. \n");
-                            printf("Veuillez saisir une valeur entre 1 et 4.\n");
+                            printf("1. nom - adjectif - verbe - nom\n");
+                            printf("2. nom - 'qui' - verbe - verbe - nom - adjectif\n");
+                            printf("3. nom - adjectif - verbe - adverbe\n");
+                            printf("Veuillez saisir une valeur entre 1 et 3.\n");
                             scanf("%d", &choix_grammaticale);
                         }
 
@@ -67,13 +66,12 @@ int main() {
                     }
                     case 2: {
                         int choix_grammaticale = 0;
-                        while (choix_grammaticale < 1 || choix_grammaticale > 4) {
+                        while (choix_grammaticale < 1 || choix_grammaticale > 3) {
                             printf("Quelle forme de phrase voulez-vous ?\n");
                             printf("1. nom - adjectif - verbe - nom\n");
-                            printf("2. nom - ‘qui’ - verbe - verbe - nom - adjectif\n");
-                            printf("3. \n");
-                            printf("4. \n");
-                            printf("Veuillez saisir une valeur entre 1 et 4.\n");
+                            printf("2. nom - 'qui' - verbe - verbe - nom - adjectif\n");
+                            printf("3. nom - adjectif - verbe - adverbe\n");
+                            printf("Veuillez saisir une valeur entre 1 et 3.\n");
                             scanf("%d", &choix_grammaticale);
                         }
 
@@ -83,6 +81,7 @@ int main() {
                     }
 
                 }
+                break;
             }
             case 2: {
                 int choix3 = 0;
@@ -111,6 +110,7 @@ int main() {
                     }
 
                 }
+                break;
             }
         }
 

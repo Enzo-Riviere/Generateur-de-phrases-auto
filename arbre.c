@@ -5,7 +5,7 @@
 #include "arbre.h"
 #include "fonction.h"
 #include "flechie.h"
-#include <Time.h>
+#include <time.h>
 
 #define TAILLE_MAX 25
 
@@ -57,7 +57,7 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 
 
 mot* genMotAleat(t_tree* arbre_mot) {
-    srand(time(NULL));
+    //srand(time(NULL));
     p_node temp = arbre_mot->root;
     int i = 1, nombre_enfant, f = 0;
     while (i) {
@@ -68,13 +68,17 @@ mot* genMotAleat(t_tree* arbre_mot) {
             //printf("cas où on peut s'arrêter à ce p_node\n");
             //cas où ne peut pas continuer
             if (temp->nb_enfants == 0) {
+                srand(time(NULL));
                 //printf("cas où ne peut pas continuer\n");
                 i = 0;
+                //printf("%d", rand());
             }
             else {
-                //si on à les deux choix alors on si rand sort un nompre impaire alors on continue
+                srand(time(NULL));
+                //printf("%d", rand());
+                //si on à les deux choix alors on si rand sort un nombre impaire alors on continue
                 if (rand() % 2 == 1) {
-                    //printf("si on à les deux choix alors on si rand sort un nompre impaire alors on continue\n");
+                    //printf("si on à les deux choix alors on si rand sort un nombre impaire alors on continue\n");
                     nombre_enfant = temp->nb_enfants;
                     temp = *(temp->enfants + (rand() % nombre_enfant));
                 }
@@ -86,6 +90,7 @@ mot* genMotAleat(t_tree* arbre_mot) {
             }
         }
         else {
+            srand(time(NULL));
             //cas où on ne peut pas s'arrêter
             //printf("cas où on ne peut pas s'arrêter\n");
             nombre_enfant = temp->nb_enfants;
@@ -143,10 +148,10 @@ char* donne_flechoe(mot* mot_choisi) {
 
 void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
     mot *nom_debut, *adjectif, *verbe1, *nom_fin;
-    nom_debut = genMotAleat(&Nom);
+    /*nom_debut = genMotAleat(&Nom);
     nom_fin = genMotAleat(&Nom);
     adjectif = genMotAleat(&Adj);
-    verbe1 = genMotAleat(&Verb);
+    verbe1 = genMotAleat(&Verb);*/
 
     /*
     printf(nom_debut->flechies.head->value);
@@ -178,12 +183,19 @@ void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
 
     if (cas == 1) {
         // cas 1 : nom - adjectif - verbe - nom
+        nom_debut = genMotAleat(&Nom);
         printf(nom_debut->nom_mot);
         printf(" ");
+
+        adjectif = genMotAleat(&Adj);
         printf(adjectif->nom_mot);
         printf(" ");
+
+        verbe1 = genMotAleat(&Verb);
         printf(verbe1->nom_mot);
         printf(" ");
+
+        nom_fin = genMotAleat(&Nom);
         printf(nom_fin->nom_mot);
         printf(".\n");
     }
@@ -191,28 +203,46 @@ void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
         if (cas == 2) {
             // cas 2 : nom - 'qui' - verbe - verbe - nom - adjectif
             mot* verbe2;
-            verbe2 = genMotAleat(&Verb);
+
+
+            nom_debut = genMotAleat(&Nom);
             printf(nom_debut->nom_mot);
             printf(" qui ");
+
+            verbe1 = genMotAleat(&Verb);
             printf(verbe1->nom_mot);
             printf(" ");
+
+            verbe2 = genMotAleat(&Verb);
             printf(verbe2->nom_mot);
             printf(" ");
+
+            nom_fin = genMotAleat(&Nom);
             printf(nom_fin->nom_mot);
             printf(" ");
+
+            adjectif = genMotAleat(&Adj);
             printf(adjectif->nom_mot);
             printf(".\n");
         }
         else {
             //cas 3 : nom - adjectif - verbe - adverbe
             mot *adverbe;
-            adverbe = genMotAleat(&Adv);
+
+
+            nom_debut = genMotAleat(&Nom);
             printf(nom_debut->nom_mot);
             printf(" ");
+
+            adjectif = genMotAleat(&Adj);
             printf(adjectif->nom_mot);
             printf(" ");
+
+            verbe1 = genMotAleat(&Verb);
             printf(verbe1->nom_mot);
             printf(" ");
+
+            adverbe = genMotAleat(&Adv);
             printf(adverbe->nom_mot);
             printf(".\n");
         }
@@ -426,7 +456,7 @@ flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
     //remplFlechi(tempo_flech, tempo_gramm, &res);
     //printf("adjectif == NULL : %d\n",(tempo_flech == NULL));
     if (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm))) {
-        printf("cas ou on n'a rien trouve\n");
+        //printf("cas ou on n'a rien trouve\n");
         res = obtFlechVer(nom_choisi, *genMotAleat(&t), t);
     }
     else {

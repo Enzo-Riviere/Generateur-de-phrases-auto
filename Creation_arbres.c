@@ -138,8 +138,8 @@ t_tree* creation_arbres_et_donne(){
     char chaine3[TAILLE_MAX] = "";
 
     //FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
-    //FILE* fichier = fopen("C:\\Users\\yael1\\OneDrive\\Bureau\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
-    FILE* fichier = fopen("D:\\document\\Generateur-de-phrases-auto\\dictionnaire_non_accentue.txt", "r+");
+    FILE* fichier = fopen("C:\\Users\\yael1\\OneDrive\\Bureau\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
+    //FILE* fichier = fopen("D:\\document\\Generateur-de-phrases-auto\\dictionnaire_non_accentue.txt", "r+");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
