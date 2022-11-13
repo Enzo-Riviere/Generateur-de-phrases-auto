@@ -63,7 +63,7 @@ void creation_arbres(){
     char chaine2[TAILLE_MAX] = "";
     char chaine3[TAILLE_MAX] = "";
 
-    fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/test.txt", "r+");
+    fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r+");
 
     //Si le fichier n'est pas vide
     if (fichier != NULL)
@@ -236,7 +236,7 @@ t_tree* creation_arbres_et_donne(){
                     break;
                 }
                 default : {
-                    //le cas où c'est un déterminat ou une préposistion, on l'ignore
+                    //le cas où c'est un déterminat ou une p réposistion, on l'ignore
                     break;
                 }
 
