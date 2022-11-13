@@ -9,7 +9,6 @@
 #define TAILLE_MAX 100
 
 int main() {
-    printf("Hello, World!\n");
 
     //Création des arbres :
     t_tree *arbre_mot;

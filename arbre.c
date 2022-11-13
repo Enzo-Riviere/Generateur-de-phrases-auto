@@ -68,14 +68,10 @@ mot* genMotAleat(t_tree* arbre_mot) {
             //printf("cas où on peut s'arrêter à ce p_node\n");
             //cas où ne peut pas continuer
             if (temp->nb_enfants == 0) {
-                srand(time(NULL));
                 //printf("cas où ne peut pas continuer\n");
                 i = 0;
-                //printf("%d", rand());
             }
             else {
-                srand(time(NULL));
-                //printf("%d", rand());
                 //si on à les deux choix alors on si rand sort un nombre impaire alors on continue
                 if (rand() % 2 == 1) {
                     //printf("si on à les deux choix alors on si rand sort un nombre impaire alors on continue\n");
@@ -90,7 +86,6 @@ mot* genMotAleat(t_tree* arbre_mot) {
             }
         }
         else {
-            srand(time(NULL));
             //cas où on ne peut pas s'arrêter
             //printf("cas où on ne peut pas s'arrêter\n");
             nombre_enfant = temp->nb_enfants;
