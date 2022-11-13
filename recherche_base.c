@@ -48,6 +48,6 @@ void recherche_base(char base[], t_tree arbre_nom, t_tree arbre_adjectif, t_tree
         res = 1;
     }
     if(res == 0){
-        printf("Le mot n'est pas dans le dictionnaire");
+        printf("Le mot n'est pas une base ou n'est pas dans le dictionnaire");
     }
 }
