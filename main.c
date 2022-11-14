@@ -144,7 +144,7 @@ int main() {
     scanf("%s",base);
     recherche_base(base, *(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 1), *(arbre_mot + 3));*/
 
-    printf("Quel mot cherchez-vous ?\n");
+    /*printf("Quel mot cherchez-vous ?\n");
     char mot[] = "preneuse";
     recherche_flechie(*(arbre_mot), mot);
 
