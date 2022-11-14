@@ -91,5 +91,5 @@ void recherche_flechie(t_tree arbre, char mot[25]){
         gram = gram->next;
     }
 
-    printf("%s %s %s\n", flechie->value, gram->value, pn->si_fin_mot->nom_mot);
+    printf("%s est un %s %s\n", flechie->value, gram->value, pn->si_fin_mot->nom_mot);
 }
