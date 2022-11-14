@@ -5,6 +5,7 @@
 #include "fonction.h"
 #include "Creation_arbres.h"
 #include "recherche_base.h"
+#include "recherche_flechie.h"
 
 #define TAILLE_MAX 100
 
@@ -136,12 +137,16 @@ int main() {
     arbre_mot = creation_arbres_et_donne();
 
     //t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve;
-    genPhraseAleat(*(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 3), *(arbre_mot + 1), 2);
+    //genPhraseAleat(*(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 3), *(arbre_mot + 1), 2);
 
-    char base[20];
+    /*char base[25];
     printf("Quel base cherchez-vous ?\n");
     scanf("%s",base);
-    recherche_base(base, *(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 1), *(arbre_mot + 3));
+    recherche_base(base, *(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 1), *(arbre_mot + 3));*/
+
+    printf("Quel mot cherchez-vous ?\n");
+    char mot[] = "preneuse";
+    recherche_flechie(*(arbre_mot), mot);
 
     return 0;
 
