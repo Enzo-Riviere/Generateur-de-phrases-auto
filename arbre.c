@@ -254,7 +254,7 @@ flechies obtFlechNom(mot nom_choisi) {
     /*
      * Cette fonction permet d'obtenir le flechie du nom.
      */
-    srand(time(NULL));
+    //srand(time(NULL));
     flechies res;
     p_cell_mot temp_f = nom_choisi.flechies.head, temp_g = nom_choisi.forme_grammatical.head;
     while((temp_f->next != NULL) && (rand() % 2 == 1)) {
@@ -316,7 +316,7 @@ int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 
 flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t) {
     //printf("debut de obtFlechAdj\n");
-    srand(time(NULL));
+    //srand(time(NULL));
     /*
     printf(adj_choisi.nom_mot);
     printf("\n");
@@ -425,7 +425,7 @@ int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 
 flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
     //printf("debut de obtFlechVer\n");
-    srand(time(NULL));
+    //srand(time(NULL));
     /*
     printf(adj_choisi.nom_mot);
     printf("\n");
@@ -475,6 +475,65 @@ flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
     return res;
 }
 
+flechies obtFlechVer_2(flechies nom_choisi, mot adj_choisi, t_tree t) {
+    //printf("debut de obtFlechVer\n");
+    //srand(time(NULL));
+    /*
+    printf(adj_choisi.nom_mot);
+    printf("\n");
+     */
+    flechies res;
+    p_cell_mot tempo_gramm, tempo_flech;
+    p_cell_mot  sure_gramm, sure_flech;
+    do {
+        tempo_gramm = adj_choisi.forme_grammatical.head;
+        tempo_flech = adj_choisi.flechies.head;
+        sure_gramm = tempo_gramm;
+        sure_flech = tempo_flech;
+        //printf("debut de la boucle dans obtFlechVer\n");
+        while ((tempo_gramm != NULL) && (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
+            //correct = bonFlechAdj(nom_choisi.forme_grammatical.head, tempo_gramm);
+            if (bonFlechVer(nom_choisi.forme_grammatical.head, tempo_gramm) &&
+                (!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
+                //printf("on a toruvé le bon flechie\n");
+                sure_gramm = tempo_gramm;
+                sure_flech = tempo_flech;
+            }
+            /*
+            printf(tempo_gramm->value);
+            printf("\n");
+            printf(tempo_flech->value);
+            printf("\n");
+            printf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
+             */
+            tempo_gramm = tempo_gramm->next;
+            tempo_flech = tempo_flech->next;
+        }
+        adj_choisi = *genMotAleat(&t);
+    } while(!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)));
+    //printf("fin de la boucle dans obtFlechVer\n");
+    //remplFlechi(tempo_flech, tempo_gramm, &res);
+    //printf("adjectif == NULL : %d\n",(tempo_flech == NULL));
+    if (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm))) {
+        //printf("cas ou on n'a rien trouve\n");
+        res = obtFlechVer(nom_choisi, *genMotAleat(&t), t);
+    }
+    else {
+        //printf("cas ou on a trouvé quelque chose\n");
+        res.nom_mot = sure_flech->value;
+        res.forme_grammatical.head = sure_gramm;
+    }
+    //printf("\n");
+    //printf(res.nom_mot);
+    //printf("\n");
+    /*
+    printf(res.forme_grammatical.head->value);
+    printf("\n");
+    printf("fin de obtFlechVer\n");
+     */
+    return res;
+}
+
 void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree Det, int cas) {
     mot *nom_debut_mot, *adjectif_mot, *verbe1_mot, *nom_fin_mot, *detereminant_debut_mot, *detereminant_fin_mot;
     nom_debut_mot = genMotAleat(&Nom);
@@ -492,7 +551,7 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
     //printf("generation mot fait\n");
     adjectif = obtFlechAdj(nom_debut, *adjectif_mot, Adj);
     //printf("generation adjetcif fait\n");
-     verbe1 = obtFlechVer(nom_debut, *verbe1_mot, Verb);
+     verbe1 = obtFlechVer_2(nom_debut, *verbe1_mot, Verb);
     //printf("generation verbe fait\n");
     detereminant_debut = obtFlechAdj(nom_debut, *detereminant_debut_mot, Det);
     detereminant_fin = obtFlechAdj(nom_fin, *detereminant_fin_mot, Det);
@@ -551,7 +610,7 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
             mot* verbe2_mot;
             verbe2_mot = genMotAleat(&Verb);
             flechies verbe2;
-            verbe2 = obtFlechVer(nom_debut, *verbe2_mot, Verb);
+            verbe2 = obtFlechVer_2(nom_debut, *verbe2_mot, Verb);
 
             printf(detereminant_debut.nom_mot);
             printf(" ");
