@@ -10,21 +10,26 @@
 #define TAILLE_MAX 100
 
 int main() {
-    printf("Hello, World!\n");
 
     //Création des arbres :
-    t_tree* arbre_mot;
+    t_tree *arbre_mot;
     arbre_mot = creation_arbres_et_donne();
-    t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve;
+    t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve, arbre_det;
+    arbre_nom = *(arbre_mot);
+    arbre_adj = *(arbre_mot + 2);
+    arbre_adve = *(arbre_mot + 3);
+    arbre_verb = *(arbre_mot + 1);
+    arbre_det = *(arbre_mot + 4);
+
 
     int arreter = 0;
-    while(arreter != 2) {
+    while (arreter != 2) {
         int choix = 0, menu_1 = 0, masque = 0, ligne, colonne;
 
 
         //Menu 1
         while (choix < 1 || choix > 2) {
-            printf("Que voulez-vous faire ?");
+            printf("Que voulez-vous faire ?\n");
             printf("1. Generer une phrase automatiquement.\n");
             printf("2. Rechercher un mot.\n");
             printf("Veuillez saisir une valeur entre 1 et 2.\n");
@@ -46,37 +51,37 @@ int main() {
                 switch (choix2) {
                     case 1 : {
                         int choix_grammaticale = 0;
-                        while (choix_grammaticale < 1 || choix_grammaticale > 4) {
+                        while (choix_grammaticale < 1 || choix_grammaticale > 3) {
                             printf("Quelle forme de phrase voulez-vous ?\n");
-                            printf("1. nom – adjectif – verbe – nom\n");
-                            printf("2. nom – ‘qui’ – verbe – verbe – nom – adjectif\n");
-                            printf("3. \n");
-                            printf("4. \n");
-                            printf("Veuillez saisir une valeur entre 1 et 4.\n");
+                            printf("1. nom - adjectif - verbe - nom\n");
+                            printf("2. nom - 'qui' - verbe - verbe - nom - adjectif\n");
+                            printf("3. nom - adjectif - verbe - adverbe\n");
+                            printf("Veuillez saisir une valeur entre 1 et 3.\n");
                             scanf("%d", &choix_grammaticale);
                         }
 
                         //Appeler la fonction pour les phrases de bases avec la forme grammaticale demandé
-
+                        genPhraseAleat(arbre_nom, arbre_adj, arbre_adve, arbre_verb, choix_grammaticale);
                         break;
                     }
                     case 2: {
                         int choix_grammaticale = 0;
-                        while (choix_grammaticale < 1 || choix_grammaticale > 4) {
+                        while (choix_grammaticale < 1 || choix_grammaticale > 3) {
                             printf("Quelle forme de phrase voulez-vous ?\n");
                             printf("1. nom - adjectif - verbe - nom\n");
-                            printf("2. nom - ‘qui’ - verbe - verbe - nom - adjectif\n");
-                            printf("3. \n");
-                            printf("4. \n");
-                            printf("Veuillez saisir une valeur entre 1 et 4.\n");
+                            printf("2. nom - 'qui' - verbe - verbe - nom - adjectif\n");
+                            printf("3. nom - adjectif - verbe - adverbe\n");
+                            printf("Veuillez saisir une valeur entre 1 et 3.\n");
                             scanf("%d", &choix_grammaticale);
                         }
 
                         //Appeler la fonction pour les phrases fléchies avec la forme grammaticale demandé
+                        genPhraseAleatFlech(arbre_nom, arbre_adj, arbre_adve, arbre_verb, arbre_det,choix_grammaticale);
                         break;
                     }
 
                 }
+                break;
             }
             case 2: {
                 int choix3 = 0;
@@ -89,22 +94,23 @@ int main() {
                 }
 
                 switch (choix3) {
-                    case 1:{
+                    case 1: {
                         char base[25];
                         printf("Quel mot de base cherchez-vous ?\n");
-                        scanf("%s",base);
+                        scanf("%s", base);
                         recherche_base(base, *(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 1), *(arbre_mot + 3));
                         break;
                     }
-                    case 2 :{
+                    case 2 : {
                         char flechie[25];
                         printf("Quel mot flechie cherchez-vous ?\n");
-                        scanf("%s",flechie);
+                        scanf("%s", flechie);
                         //appeler la fonction qui recherchera
                         break;
                     }
 
                 }
+                break;
             }
         }
 
@@ -117,44 +123,4 @@ int main() {
             scanf("%d", &arreter);
         }
     }
-
-
-
-
-
-
-
-
-    /*mot* resultat;
-    resultat = genMotAleat(&arbre_nom);
-    printf("\n");
-    printf(resultat->nom_mot);
-
-    //creation_arbres();
-
-    t_tree* arbre_mot;
-    //arbre_mot = creation_arbres_et_donne_vieux();
-    arbre_mot = creation_arbres_et_donne();
-
-    //t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve;
-    //genPhraseAleat(*(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 3), *(arbre_mot + 1), 2);
-
-    /*char base[25];
-    printf("Quel base cherchez-vous ?\n");
-    scanf("%s",base);
-    recherche_base(base, *(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 1), *(arbre_mot + 3));*/
-
-    printf("Quel mot cherchez-vous ?\n");
-    char mot[] = "preneuse";
-    recherche_flechie(*(arbre_mot), mot);
-
-    return 0;
-
-
-    printf("\n");
-    flechies tempo;
-    tempo = obtFlechNom(*genMotAleat(arbre_mot));
-    printf(tempo.nom_mot);
-    */
-     return 0;
 }
