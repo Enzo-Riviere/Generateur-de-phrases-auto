@@ -7,7 +7,7 @@
 #include "recherche_base.h"
 
 #define TAILLE_MAX 100
-
+/*
 int main() {
     printf("Hello, World!\n");
 
@@ -123,4 +123,17 @@ int main() {
             scanf("%d", &arreter);
         }
     }
+}
+*/
+int main() {
+    t_tree *arbre_mot;
+    arbre_mot = creation_arbres_et_donne();
+    t_tree arbre_nom, arbre_verb, arbre_adj, arbre_adve, arbre_det;
+    arbre_nom = *(arbre_mot);
+    arbre_adj = *(arbre_mot + 2);
+    arbre_adve = *(arbre_mot + 3);
+    arbre_verb = *(arbre_mot + 1);
+    arbre_det = *(arbre_mot + 4);
+    genPhraseAleatFlech(arbre_nom, arbre_adj, arbre_adve, arbre_verb, arbre_det,1);
+    return 0;
 }
