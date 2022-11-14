@@ -139,12 +139,6 @@ t_tree* creation_arbres_et_donne(){
         //tant qu'on n'est pas à la dernière ligne
         while (fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3) != EOF){
 
-            char chaine1[TAILLE_MAX] = "";
-            char chaine2[TAILLE_MAX] = "";
-            char chaine3[TAILLE_MAX] = "";
-
-            fscanf(fichier, "%s   %s   %s", &chaine1, &chaine2, &chaine3);
-
             char type = typeIndentify(chaine3);
 
             switch (type) {
