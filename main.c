@@ -5,6 +5,7 @@
 #include "fonction.h"
 #include "Creation_arbres.h"
 #include "recherche_base.h"
+#include "recherche_flechie.h"
 
 #define TAILLE_MAX 100
 

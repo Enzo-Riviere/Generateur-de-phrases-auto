@@ -16,7 +16,7 @@ typedef struct {
     t_std_list_mot forme_grammatical;
 }flechies;
 
-//Création de la structure pour stocker tout les noms fléchies :
+//Création de la structure pour stocker tous les noms fléchies :
 typedef struct{
     char nom_mot[100];
     int nb_flechie;

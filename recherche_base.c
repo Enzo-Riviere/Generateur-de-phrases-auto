@@ -7,7 +7,12 @@
 //fonction qui vérifie si le mot est dans l'arbre
 int mot_dans_arbre(t_tree arbre, char mot[]){
     p_node tmp = arbre.root;
-    int i = 0;
+    int i = 0, taille_mot = 0;
+    while(mot[i] != '\0'){
+        taille_mot ++;
+        i++;
+    }
+    i = 0;
     //On parcourt le mot lettre par lettre
     while(mot[i] != '\0'){
         //Si la lettre du mot est dans le tableau
@@ -48,6 +53,7 @@ void recherche_base(char base[], t_tree arbre_nom, t_tree arbre_adjectif, t_tree
         res = 1;
     }
     if(res == 0){
-        printf("Le mot n'est pas dans le dictionnaire");
+        printf("Le mot n'est pas une base ou n'est pas dans le dictionnaire");
     }
 }
+
