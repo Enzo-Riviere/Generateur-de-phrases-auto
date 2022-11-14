@@ -125,6 +125,7 @@ int main() {
     }
 }
 */
+
 int main() {
     t_tree *arbre_mot;
     arbre_mot = creation_arbres_et_donne();
@@ -134,6 +135,6 @@ int main() {
     arbre_adve = *(arbre_mot + 3);
     arbre_verb = *(arbre_mot + 1);
     arbre_det = *(arbre_mot + 4);
-    genPhraseAleatFlech(arbre_nom, arbre_adj, arbre_adve, arbre_verb, arbre_det,1);
+    genPhraseAleatFlech(arbre_nom, arbre_adj, arbre_adve, arbre_verb, arbre_det,3);
     return 0;
 }
