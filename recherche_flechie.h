@@ -9,6 +9,7 @@
 #include "arbre.h"
 
 p_node trouver_flechie(p_node, char[]);
-void recherche_flechie(t_tree, char[]);
+int recherche_flechie(t_tree, char[]);
+void recherche_mot_dans_arbres(t_tree, t_tree, t_tree, t_tree, char[]);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_RECHERCHE_FLECHIE_H

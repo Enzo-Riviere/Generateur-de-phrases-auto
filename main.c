@@ -104,14 +104,14 @@ int main() {
                         char base[25];
                         printf("Quel mot de base cherchez-vous ?\n");
                         scanf("%s", base);
-                        recherche_base(base, *(arbre_mot), *(arbre_mot + 2), *(arbre_mot + 1), *(arbre_mot + 3));
+                        recherche_base(base, arbre_nom, arbre_adj, arbre_verb, arbre_adve);
                         break;
                     }
                     case 2 : {
                         char flechie[25];
                         printf("Quel mot flechie cherchez-vous ?\n");
                         scanf("%s", flechie);
-                        //appeler la fonction qui recherchera
+                        recherche_mot_dans_arbres(arbre_nom,arbre_adj, arbre_verb, arbre_adve, flechie);
                         break;
                     }
 
