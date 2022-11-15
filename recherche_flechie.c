@@ -91,7 +91,7 @@ int recherche_flechie(t_tree arbre, char mot[25]){
         for (int j = 0; j < pos; j++) {
             gram = gram->next;
         }
-        printf("le mot %s vient du mot de base %s avec la forme grammaticale suivante : %s\n", flechie->value, pn->si_fin_mot->nom_mot, gram->value);
+        printf("Le mot %s vient du mot de base %s avec la forme grammaticale suivante : %s\n", flechie->value, pn->si_fin_mot->nom_mot, gram->value);
         return 1;
     }
 }
