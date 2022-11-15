@@ -22,6 +22,7 @@ t_tree createEmptyTree();
 void ajout_mot(t_tree*, char[], char[], char[]);
 
 mot* genMotAleat(t_tree* arbre_mot);
+void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb );
 void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas);
 flechies obtFlechNom(mot nom_choisi);
 flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t);

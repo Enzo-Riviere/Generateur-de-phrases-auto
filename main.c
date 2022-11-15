@@ -28,17 +28,23 @@ int main() {
 
 
         //Menu 1
-        while (choix < 1 || choix > 2) {
+        while (choix < 1 || choix > 3) {
             printf("Que voulez-vous faire ?\n");
-            printf("1. Generer une phrase automatiquement.\n");
-            printf("2. Rechercher un mot.\n");
-            printf("Veuillez saisir une valeur entre 1 et 2.\n");
+            printf("1. Extraire une forme de base au hasard.\n");
+            printf("2. Generer une phrase automatiquement.\n");
+            printf("3. Rechercher un mot.\n");
+            printf("Veuillez saisir une valeur entre 1 et 3.\n");
             scanf("%d", &choix);
         }
 
 
         switch (choix) {
-            case 1 : {
+            case 1 :{
+                extrait_mot_aleat(arbre_nom, arbre_adj, arbre_adve, arbre_verb);
+                break;
+            }
+
+            case 2 : {
                 int choix2 = 0;
                 while (choix2 < 1 || choix2 > 2) {
                     printf("Quel type de phrase voulez-vous ?\n");
@@ -83,7 +89,7 @@ int main() {
                 }
                 break;
             }
-            case 2: {
+            case 3: {
                 int choix3 = 0;
                 while (choix3 < 1 || choix3 > 2) {
                     printf("Quel type de mot voulez-vous rechercher ?\n");

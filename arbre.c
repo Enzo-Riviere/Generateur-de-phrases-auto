@@ -140,6 +140,41 @@ char* donne_flechoe(mot* mot_choisi) {
     }
 }*/
 
+void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb ){
+    srand(time(NULL));
+    int val = rand() % 4+1;
+
+    switch (val) {
+        case 1:{
+            mot *nom = genMotAleat(&Nom);
+            printf("%s\n",nom->nom_mot);
+            break;
+        }
+        case 2:{
+            mot *verbe = genMotAleat(&Verb);
+            printf("%s\n",verbe->nom_mot);
+            break;
+        }
+        case 3:{
+            mot *adj = genMotAleat(&Adj);
+            printf("%s\n",adj->nom_mot);
+            break;
+        }
+        case 4:{
+            mot *adv = genMotAleat(&Adv);
+            printf("%s\n",adv->nom_mot);
+            break;
+        }
+        default : {
+            //le cas où c'est un déterminat ou une préposistion, on l'ignore
+            printf("Non");
+            break;
+        }
+    }
+}
+
+
+
 
 void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
     mot *nom_debut, *adjectif, *verbe1, *nom_fin;
