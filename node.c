@@ -82,10 +82,8 @@ void ajout_flech(p_node pn, char mot_court[], char flechie[], char type[]) {
     else {
         //autre cas
         pn->si_fin_mot->flechies.head = createCellMot(flechie);
-        //printf(pn->si_fin_mot->flechies.head->value);
 
         pn->si_fin_mot->forme_grammatical.head = createCellMot(type);
-        //printf(pn->si_fin_mot->forme_grammatical.head->value);
     }
 
 }
