@@ -7,7 +7,7 @@
 #include "arbre.h"
 
 char typeIndentify(char *ligne);
-
+char typeIndentifie(char *ligne);
 t_tree* creation_arbres_et_donne();
 
 
