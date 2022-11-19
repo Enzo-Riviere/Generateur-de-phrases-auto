@@ -54,6 +54,32 @@ char typeIndentify(char *ligne) {
     }
 }
 
+char typeIndentifie(char *ligne) {
+    /*
+     * char** ligne : correspond à une ligne du du dictionnaire.
+     * return char* est le nom du type.
+     */
+    //on prend le troisième caractère de la troisième chaine de caracctères qui à chaque fois propre à chaque type.
+    char caractere_important;
+    caractere_important = ligne[2];
+    if (ligne[0] == 'N' && ligne[1] == 'o' && ligne[2] == 'm') {
+        return 'n';
+    }
+    if (ligne[0] == 'V' && ligne[1] == 'e' && ligne[2] == 'r') {
+        return 'v';
+    }
+    if (ligne[0] == 'A' && ligne[1] == 'd' && ligne[2] == 'j') {
+        return 'j';
+    }
+    if (ligne[0] == 'A' && ligne[1] == 'd' && ligne[2] == 'v') {
+        return 'a';
+    }
+    if (ligne[0] == 'D' && ligne[1] == 'e' && ligne[2] == 't') {
+        return 'd';
+    }
+    return '0';
+}
+
 
 t_tree* creation_arbres_et_donne(){
 
@@ -93,7 +119,7 @@ t_tree* creation_arbres_et_donne(){
 
             fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3);
 
-            char type = typeIndentify(chaine3);
+            char type = typeIndentifie(chaine3);
 
             switch (type) {
                 // n = Nom
