@@ -129,7 +129,7 @@ char* donne_flechoe(mot* mot_choisi) {
 }*/
 
 void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb ){
-    srand(time(NULL));
+    //srand(time(NULL));
     int val = rand() % 4+1;
 
     switch (val) {
@@ -234,7 +234,7 @@ flechies obtFlechNom(mot nom_choisi) {
     /*
      * Cette fonction permet d'obtenir le flechie du nom.
      */
-    srand(time(NULL));
+    //srand(time(NULL));
     flechies res;
     p_cell_mot temp_f = nom_choisi.flechies.head, temp_g = nom_choisi.forme_grammatical.head;
     while((temp_f->next != NULL) && (rand() % 2 == 1)) {
@@ -287,7 +287,7 @@ int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 
 flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t) {
 
-    srand(time(NULL));
+    //srand(time(NULL));
 
     flechies res;
     p_cell_mot tempo_gramm, tempo_flech;
@@ -365,7 +365,7 @@ int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 
 flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
 
-    srand(time(NULL));
+    //srand(time(NULL));
 
     flechies res;
     p_cell_mot tempo_gramm, tempo_flech;
