@@ -494,3 +494,102 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
         }
     }
 }
+
+void genPhraseAleatFlech_det(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree Det, int cas) {
+    mot *nom_debut_mot, *adjectif_mot, *verbe1_mot, *nom_fin_mot, *detereminant_debut_mot, *detereminant_fin_mot;
+    nom_debut_mot = genMotAleat(&Nom);
+    nom_fin_mot = genMotAleat(&Nom);
+    adjectif_mot = genMotAleat(&Adj);
+    verbe1_mot = genMotAleat(&Verb);
+
+    detereminant_debut_mot = genMotAleat(&Det);
+    detereminant_fin_mot = genMotAleat(&Det);
+
+    flechies nom_debut, adjectif, verbe1, nom_fin, detereminant_debut, detereminant_fin;
+
+    //Generation nom :
+    detereminant_debut = obtFlechNom(*detereminant_debut_mot);
+    detereminant_fin = obtFlechNom(*detereminant_fin_mot);
+
+    //Generation verbe :
+    verbe1 = obtFlechVer(detereminant_debut, *verbe1_mot, Verb);
+
+    //Generation determinant :
+    nom_debut = obtFlechAdj(detereminant_debut, *nom_debut_mot, Nom);
+    nom_fin = obtFlechAdj(detereminant_fin, *nom_fin_mot, Nom);
+
+
+    if (cas == 1) {
+        // cas 1 : nom - adjectif - verbe - nom
+
+        //Generation adjetcif :
+        adjectif = obtFlechAdj(detereminant_debut, *adjectif_mot, Adj);
+
+        printf(detereminant_debut.nom_mot);
+        printf(" ");
+
+        printf(nom_debut.nom_mot);
+        printf(" ");
+
+        printf(adjectif.nom_mot);
+        printf(" ");
+
+        printf(verbe1.nom_mot);
+        printf(" ");
+
+        printf(detereminant_fin.nom_mot);
+        printf(" ");
+
+        printf(nom_fin.nom_mot);
+        printf(".\n");
+    }
+    else {
+        if (cas == 2) {
+            // cas 2 : nom - 'qui' - verbe - verbe - nom - adjectif
+            mot* verbe2_mot;
+            verbe2_mot = genMotAleat(&Verb);
+            flechies verbe2;
+            verbe2 = obtFlechVer(detereminant_debut, *verbe2_mot, Verb);
+
+            //Generation adjetcif :
+            adjectif = obtFlechAdj(detereminant_fin, *adjectif_mot, Adj);
+
+            printf(detereminant_debut.nom_mot);
+            printf(" ");
+
+            printf(nom_debut.nom_mot);
+            printf(" qui ");
+            printf(verbe1.nom_mot);
+            printf(" ");
+            printf(verbe2.nom_mot);
+            printf(" ");
+
+            printf(detereminant_fin.nom_mot);
+            printf(" ");
+
+            printf(nom_fin.nom_mot);
+            printf(" ");
+            printf(adjectif.nom_mot);
+            printf(".\n");
+        }
+        else {
+            //cas 3 : nom - adjectif - verbe - adverbe
+            mot *adverbe;
+            adverbe = genMotAleat(&Adv);
+
+            //Generation adjetcif :
+            adjectif = obtFlechAdj(detereminant_debut, *adjectif_mot, Adj);
+
+            printf(detereminant_debut.nom_mot);
+            printf(" ");
+            printf(nom_debut.nom_mot);
+            printf(" ");
+            printf(adjectif.nom_mot);
+            printf(" ");
+            printf(verbe1.nom_mot);
+            printf(" ");
+            printf(adverbe->nom_mot);
+            printf(".\n");
+        }
+    }
+}
