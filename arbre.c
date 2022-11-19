@@ -412,9 +412,6 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
     nom_debut = obtFlechNom(*nom_debut_mot);
     nom_fin = obtFlechNom(*nom_fin_mot);
 
-    //Generation adjetcif :
-    adjectif = obtFlechAdj(nom_debut, *adjectif_mot, Adj);
-
     //Generation verbe :
      verbe1 = obtFlechVer(nom_debut, *verbe1_mot, Verb);
 
@@ -425,6 +422,9 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
 
     if (cas == 1) {
         // cas 1 : nom - adjectif - verbe - nom
+
+        //Generation adjetcif :
+        adjectif = obtFlechAdj(nom_debut, *adjectif_mot, Adj);
 
         printf(detereminant_debut.nom_mot);
         printf(" ");
@@ -452,6 +452,9 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
             flechies verbe2;
             verbe2 = obtFlechVer(nom_debut, *verbe2_mot, Verb);
 
+            //Generation adjetcif :
+            adjectif = obtFlechAdj(nom_fin, *adjectif_mot, Adj);
+
             printf(detereminant_debut.nom_mot);
             printf(" ");
 
@@ -474,6 +477,10 @@ void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree
             //cas 3 : nom - adjectif - verbe - adverbe
             mot *adverbe;
             adverbe = genMotAleat(&Adv);
+
+            //Generation adjetcif :
+            adjectif = obtFlechAdj(nom_debut, *adjectif_mot, Adj);
+
             printf(detereminant_debut.nom_mot);
             printf(" ");
             printf(nom_debut.nom_mot);
