@@ -29,6 +29,5 @@ flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t);
 int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj);
 flechies obtFlechVer(flechies nom_choisi, mot adj_choisi,t_tree t);
 void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree Det, int cas);
-void genPhraseAleatFlech_det(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree Det, int cas);
 
 #endif //GENERATEUR_DE_PHRASES_AUTO_ARBRE_H
