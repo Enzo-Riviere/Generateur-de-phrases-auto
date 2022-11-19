@@ -368,20 +368,28 @@ flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
     srand(time(NULL));
 
     flechies res;
-    p_cell_mot tempo_gramm = adj_choisi.forme_grammatical.head, tempo_flech = adj_choisi.flechies.head;
-    p_cell_mot  sure_gramm = tempo_gramm, sure_flech = tempo_flech;
+    p_cell_mot tempo_gramm, tempo_flech;
+    p_cell_mot sure_gramm, sure_flech;
+    do {
+        tempo_gramm = adj_choisi.forme_grammatical.head;
+        tempo_flech = adj_choisi.flechies.head;
+        sure_gramm = tempo_gramm;
+        sure_flech = tempo_flech;
 
-    while((tempo_gramm != NULL) && (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
+        while ((tempo_gramm != NULL) &&
+               (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
 
-        if (bonFlechVer(nom_choisi.forme_grammatical.head, tempo_gramm) && (!(bonFlechAdj(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
-            // On a toruvé le bon flechie
-            sure_gramm = tempo_gramm;
-            sure_flech = tempo_flech;
+            if (bonFlechVer(nom_choisi.forme_grammatical.head, tempo_gramm) &&
+                (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm)) || (rand() % 2 == 0))) {
+                sure_gramm = tempo_gramm;
+                sure_flech = tempo_flech;
+            }
+
+            tempo_gramm = tempo_gramm->next;
+            tempo_flech = tempo_flech->next;
         }
-
-        tempo_gramm = tempo_gramm->next;
-        tempo_flech = tempo_flech->next;
-    }
+        adj_choisi = *genMotAleat(&t);
+    } while(!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm)));
 
     if (!(bonFlechVer(nom_choisi.forme_grammatical.head, sure_gramm))) {
         // Cas ou on n'a rien trouve
@@ -395,6 +403,8 @@ flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
 
     return res;
 }
+
+
 
 void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree Det, int cas) {
     mot *nom_debut_mot, *adjectif_mot, *verbe1_mot, *nom_fin_mot, *detereminant_debut_mot, *detereminant_fin_mot;
