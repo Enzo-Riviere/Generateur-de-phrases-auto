@@ -23,12 +23,12 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
     while(mot_court[i+1] != '\0'){
         //on regard si la lettre et dans le tableau
         if(lettre_dans_tableau(tmp, mot_court[i]) == 0){
-            //on ajoute la nouvelle lettre comme branche du noeud et le pointeur prend son addresse
+            //on ajoute la nouvelle lettre comme branche du noeud et le pointeur prend son adresse
             p_node nv_tmp = ajouter_enfant(tmp, mot_court[i]);
             tmp = nv_tmp;
 
         }else{
-            //on parcours la liste des lettres déja existant pour trouver l'adresse et le pointeru tmp prend cette adresse.
+            //on parcourt la liste des lettres déjà existant pour trouver l'adresse et le pointeur tmp prend cette adresse.
             int j = 0;
             while ((j< tmp->nb_enfants) && (tmp->enfants[j]->val != mot_court[i])){
                 j++;
