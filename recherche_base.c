@@ -4,7 +4,9 @@
 
 #include "recherche_base.h"
 
-//fonction qui vérifie si le mot est dans l'arbre
+//Cette fonction vérifie si le mot est dans l'arbre
+//Elle prend en paramètre un arbre et le mot que l'on recherche
+//Elle retourne un entier
 int mot_dans_arbre(t_tree arbre, char mot[]){
     p_node tmp = arbre.root;
     int i = 0, taille_mot = 0;
@@ -33,7 +35,9 @@ int mot_dans_arbre(t_tree arbre, char mot[]){
     return 1;
 }
 
-//
+//Cette fonction recherche si le mot existe dans les différents arbres
+//Elle prend en paramètre la base que l'on cherche et tous nous arbres (nom, verbes, adjectifs, adverbe)
+//Elle ne retourne rien
 void recherche_base(char base[], t_tree arbre_nom, t_tree arbre_adjectif, t_tree arbre_verbe, t_tree arbre_adverbe) {
     int res = 0;
     if (mot_dans_arbre(arbre_nom, base)) {
@@ -52,6 +56,7 @@ void recherche_base(char base[], t_tree arbre_nom, t_tree arbre_adjectif, t_tree
         printf("La base %s est un adverbe\n", base);
         res = 1;
     }
+    //Si le mot n'a été trouvé dans aucun des arbres
     if(res == 0){
         printf("Le mot n'est pas une base ou n'est pas dans le dictionnaire");
     }

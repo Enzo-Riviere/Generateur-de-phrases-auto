@@ -4,11 +4,15 @@
 
 #include "recherche_flechie.h"
 
+//Cette fonction permet chercher dans un arbre dans quel noeud se situe le fléchi recherché
+//Elle prend en paramètre un p_node et une chaine de caractère (notre fléchi)
+//Elle retourne le noeud dans lequel est situé notre mot
 p_node trouver_flechie(p_node pn, char mot[25])
 {
     int i = 0, taille_mot = 0;
     if(pn->fin_mot != 0){
         p_cell_mot flechie = pn->si_fin_mot->flechies.head;
+        //Calcule la taille du mot
         while(mot[i]!='\0')
         {
             taille_mot++;
@@ -37,23 +41,23 @@ p_node trouver_flechie(p_node pn, char mot[25])
             }
             else
             {
-                //printf("flechie suivant\n");
                 flechie = flechie->next;
             }
         }
     }
     for(int j=0; j < pn->nb_enfants; j++)
     {
-        //printf("enfant suivant\n");
         p_node tmp = trouver_flechie(pn->enfants[j], mot);
         if (tmp != NULL){
             return tmp;
         }
     }
-    //printf("pas dans l'arbre\n");
     return NULL;
 }
 
+//Cette fonction cherche dans la liste d'un noeud le fléchi recherché
+//Elle prend en paramètre un arbre et une chaine de caractère (notre fléchi)
+//Elle retourne un entier
 int recherche_flechie(t_tree arbre, char mot[25]){
     p_node pn = trouver_flechie(arbre.root, mot);
     if (pn == NULL){
@@ -63,6 +67,7 @@ int recherche_flechie(t_tree arbre, char mot[25]){
         int i = 0, taille_mot = 0;
         p_cell_mot flechie = pn->si_fin_mot->flechies.head;
         int trouve = 0, pos = 0;
+        //Calcule la taille du mot
         while (mot[i] != '\0') {
             taille_mot++;
             i++;
@@ -96,6 +101,9 @@ int recherche_flechie(t_tree arbre, char mot[25]){
     }
 }
 
+//Cette fonction va utiliser nos fonctions précédentes afin de chercher le fléchi dans nos différents arbres
+//Elle prend en paramètre des arbres (nom, adjectif, verbe, adverbe) et une chaine de caractère (le fléchie recherché)
+//Elle ne retourne rien
 void recherche_mot_dans_arbres(t_tree arbre_nom, t_tree arbre_adjectif, t_tree arbre_verbe, t_tree arbre_adverbe, char mot[25]){
     int res;
     res += recherche_flechie(arbre_nom,mot);
