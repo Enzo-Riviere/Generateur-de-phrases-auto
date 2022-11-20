@@ -68,7 +68,6 @@ mot* genMotAleat(t_tree* arbre_mot) {
     /*
      * Cette fonction prend en paramètre un arbre de mot est sort un mot aléatoirement.
      * */
-    //srand(time(NULL));
     p_node temp = arbre_mot->root;
     int i = 1, nombre_enfant, f = 0;
     while (i) {
@@ -231,8 +230,9 @@ void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
 flechies obtFlechNom(mot nom_choisi) {
     /*
      * Cette fonction permet d'obtenir le flechie du nom.
+     * mot nom_choisi : variable mot contenat un mot brut et ses déclinaisons.
+     * return : flechies res : fléchie contant l'écriture du fléchie et sa forme grammaticale.
      */
-    //srand(time(NULL));
     flechies res;
     p_cell_mot temp_f = nom_choisi.flechies.head, temp_g = nom_choisi.forme_grammatical.head;
     while((temp_f->next != NULL) && (rand() % 2 == 1)) {
@@ -249,11 +249,13 @@ flechies obtFlechNom(mot nom_choisi) {
 int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
     /*
      * cette fonction dit si le flechie si l'adjectif qui est accordé.
+     * p_cell_mot forme_nom : pointeur vers une cellule mot contenant la forme grammaticale du mot déjà accordé.
+     * p_cel_mot forme_adj : pointeur vers une cellule mot contenant la forme grammaticale du mot à accorder.
+     * return int res : variable entier contenant 0 si les deux formes grammaticales ne sont pas accordées et 1 si elle sont accordées.
      */
 
     char signi_nom, signi_adj,**tempo_nom = (char**) malloc(sizeof(char*) * 2), **tempo_adj = (char**) malloc(sizeof(char*) * 2);
     int res = 0;
-    //printf("initilisation\n");
     *(tempo_nom) = chaProch(forme_nom->value, ':');
     *(tempo_nom + 1 ) = chaProch(*(tempo_nom), '+');
     *(tempo_adj) = chaProch(forme_adj->value, ':');
@@ -286,9 +288,12 @@ int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t) {
     /*
      * Cette fonction sert à trouver le bon fléchie d'un mot par rapport à un fléchie donné.
+     * flechies nom_choisi : variable de type fléchie contenant tout une mot déjà accordé.
+     * mot adj_choisi : variable de type fléchie contenant tout une mot à accorder
+     * t_tree t : arbre de le classe grammaticale de adj_choisi.
+     * return flechies res : le flechie de adj_choisi accordé avec nom_choisi.
      * */
 
-    //srand(time(NULL));
 
     flechies res;
     p_cell_mot tempo_gramm, tempo_flech;
@@ -330,6 +335,9 @@ flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t) {
 int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj) {
     /*
      * cette fonction dit si le flechie si le verbe qui est accordé.
+     * p_cell_mot forme_nom : pointeur vers une cellule mot contenant la forme grammaticale du mot déjà accordé.
+     * p_cel_mot forme_adj : pointeur vers une cellule mot contenant la forme grammaticale du verbe à accorder.
+     * return int res : variable entier contenant 0 si les deux formes grammaticales ne sont pas accordées et 1 si elle sont accordées.
      */
 
     char signi_nom, signi_adj,**tempo_nom = (char**) malloc(sizeof(char*) * 2), **tempo_adj = (char**) malloc(sizeof(char*) * 3);
@@ -367,8 +375,11 @@ int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
     /*
     * Cette fonction sert à trouver le bon fléchie d'un verbe par rapport à un fléchie d'un mot donné.
+     * flechies nom_choisi : variable de type fléchie contenant tout un mot déjà accordé.
+     * mot adj_choisi : variable de type fléchie contenant tout un verbe à accorder
+     * t_tree t : arbre de le classe grammaticale de adj_choisi.
+     * return flechies res : le flechie de adj_choisi accordé avec nom_choisi.
     * */
-    //srand(time(NULL));
 
     flechies res;
     p_cell_mot tempo_gramm, tempo_flech;
@@ -412,6 +423,12 @@ flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
 void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree Det, int cas) {
     /*
      * Cette fonction tous les arbes de mots et les utilise pou faire une phrase aléatoire avec accord.
+     * t_tree Nom : arbre contenant tous les noms.
+     * t_tree Adj : arbre contenant tous les adjectifs.
+     * t_tree Adv : arbre contenant tous les adverbes.
+     * t_tree Verb : arbre contenant tous les verbes.
+     * int cas : enitier indiquant la structure sélectionner par l'utilisateur.
+     * return : rien
      * */
     mot *nom_debut_mot, *adjectif_mot, *verbe1_mot, *nom_fin_mot, *detereminant_debut_mot, *detereminant_fin_mot;
     nom_debut_mot = genMotAleat(&Nom);
