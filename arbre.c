@@ -57,6 +57,9 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 
 
 mot* genMotAleat(t_tree* arbre_mot) {
+    /*
+     * Cette fonction prend en paramètre un arbre de mot est sort un mot aléatoirement.
+     * */
     //srand(time(NULL));
     p_node temp = arbre_mot->root;
     int i = 1, nombre_enfant, f = 0;
@@ -165,6 +168,9 @@ void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb ){
 
 
 void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
+    /*
+     * Cette fonction tous les arbes de mots et les utilise pou faire une phrase aléatoire sans accord.
+     * */
     mot *nom_debut, *adjectif, *verbe1, *nom_fin, *verbe2, *adverbe;
     nom_debut = genMotAleat(&Nom);
     nom_fin = genMotAleat(&Nom);
@@ -286,6 +292,9 @@ int bonFlechAdj(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 }
 
 flechies obtFlechAdj(flechies nom_choisi, mot adj_choisi, t_tree t) {
+    /*
+     * Cette fonction sert à trouver le bon fléchie d'un mot par rapport à un fléchie donné.
+     * */
 
     //srand(time(NULL));
 
@@ -364,7 +373,9 @@ int bonFlechVer(p_cell_mot forme_nom, p_cell_mot forme_adj) {
 }
 
 flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
-
+    /*
+    * Cette fonction sert à trouver le bon fléchie d'un verbe par rapport à un fléchie d'un mot donné.
+    * */
     //srand(time(NULL));
 
     flechies res;
@@ -407,6 +418,9 @@ flechies obtFlechVer(flechies nom_choisi, mot adj_choisi, t_tree t) {
 
 
 void genPhraseAleatFlech(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, t_tree Det, int cas) {
+    /*
+     * Cette fonction tous les arbes de mots et les utilise pou faire une phrase aléatoire avec accord.
+     * */
     mot *nom_debut_mot, *adjectif_mot, *verbe1_mot, *nom_fin_mot, *detereminant_debut_mot, *detereminant_fin_mot;
     nom_debut_mot = genMotAleat(&Nom);
     nom_fin_mot = genMotAleat(&Nom);
