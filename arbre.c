@@ -9,12 +9,18 @@
 
 #define TAILLE_MAX 25
 
+//Cette fonction créer un arbre avec un premier noeud qui contient ' '
+//Elle ne prend rien en paramètre
+//Elle retourne un arbre
 t_tree createEmptyTree (){
     t_tree mytree;
     mytree.root = createNode(' ');
     return mytree;
 }
 
+//Cette fonction permet d'ajouter un nouveau mot dans un arbre
+//Elle prend en paramètre un arbre, le mot sous forme de base, sous forme fléchie ainsi que la forme grammaticale
+//Elle ne retourne rien
 void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
     int i = 0;
     p_node tmp = arbre->root;
@@ -55,7 +61,9 @@ void ajout_mot(t_tree* arbre, char mot_court[], char flechie[], char type[]){
 }
 
 
-
+//Cette fonction permet de prendre un mot aléatoirement dans un arbre
+//Elle prend un arbre en paramètre
+//Elle retourne un type mot afin de pouvoir par la suite exploiter ses formes fléchies
 mot* genMotAleat(t_tree* arbre_mot) {
     /*
      * Cette fonction prend en paramètre un arbre de mot est sort un mot aléatoirement.
@@ -95,42 +103,10 @@ mot* genMotAleat(t_tree* arbre_mot) {
     return temp->si_fin_mot;
 }
 
-char* accord_flechies_Adj(mot* nom_choisi, mot* adjectif_choisi, char type[]) {
-    //On suppose le nom à un suel flechie
-    return NULL;
-}
 
-
-/*
-char* donne_flechoe(mot* mot_choisi) {
-    char caractere_important;
-    caractere_important = ligne[2];
-    switch(caractere_important) {
-        //En regarder les information pour chaque mots, on se rends compte que 'Nom', 'Ver', 'Adj', 'Adv' ont un troisième carctère unique
-        case 'm' : {
-            return "Nom";
-            break;
-        }
-        case 'r': {
-            return "Verbe";
-            break;
-        }
-        case 'j': {
-            return "Adjectif";
-            break;
-        }
-        case 'v': {
-            return  "Adverbe";
-            break;
-        }
-        default : {
-            //le cas où c'est un déterminat ou une préposistion, on l'ignore
-            return "Non";
-            break;
-        }
-    }
-}*/
-
+//Cette fonction permet d'extraire un mot sous forme de base au hasard et de l'afficher à l'utilisateur
+//Elle prend en paramètre les arbres nom, verbre, adjectif et adverbe
+//Elle ne retourne rien
 void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb ){
     /*
      * Cette foncton choisi aléatoirement depuis quelle arbre on doit générer aléatoirement un mot brut et lan,ce la fonction générant aléatoirement un mot brut.
@@ -174,7 +150,9 @@ void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb ){
 
 
 
-
+//Cette fonction va generer une phrase aléatoire sans accord
+//Elle prend en paramètre les 4 types d'arbres ainsi que le type de phrase que l'utilisateur veut
+//Elle ne retourne rien
 void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
     /*
      * Cette fonction tous les arbes de mots et les utilise pou faire une phrase aléatoire sans accord.

@@ -9,50 +9,7 @@
 
 #define TAILLE_MAX 100
 
-char typeIndentify(char *ligne) {
-    /*
-     * char** ligne : correspond à une ligne du du dictionnaire.
-     * return char* est le nom du type.
-     */
-    //on prend le troisième caractère de la troisième chaine de caracctères qui à chaque fois propre à chaque type.
-    char caractere_important;
-    caractere_important = ligne[2];
-    switch (caractere_important) {
-        //En regarder les information pour chaque mots, on se rends compte que 'Nom', 'Ver', 'Adj', 'Adv' ont un troisième carctère unique
-        case 'm' : {
-            // n = Nom
-            return 'n';
-            break;
-        }
-        case 'r': {
-            // v = verbe
-            return 'v';
-            break;
-        }
-        case 'j': {
-            // j = Adjectif
-            return 'j';
-            break;
-        }
-        case 'v': {
-            // a = adverbe
-            return 'a';
-            break;
-        }
-        case 't':{
-            // t = determinant
-            if ((ligne[0] == 'D') && (ligne[1] == 'e'))
-                return 'd';
-            return '0';
-            break;
-        }
-        default : {
-            //le cas où c'est un déterminat ou une préposistion, on l'ignore
-            return '0';
-            break;
-        }
-    }
-}
+
 
 char typeIndentifie(char *ligne) {
     /*
@@ -81,6 +38,9 @@ char typeIndentifie(char *ligne) {
 }
 
 
+//Cette fonction créer les différents arbres
+//Elle ne prend rien en paramètre
+//Elle ne retourne rien car on utilise les adresses des arbres afin de pouvoir les utiliser par la suite
 t_tree* creation_arbres_et_donne(){
 
     t_tree arbre_nom = createEmptyTree();
@@ -101,11 +61,6 @@ t_tree* creation_arbres_et_donne(){
     char chaine3[TAILLE_MAX] = "";
 
 
-    //FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
-    //FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto\\test.txt", "r");
-    //FILE* fichier = fopen("C:\\Users\\enzor\\CLionProjects\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
-    //FILE* fichier = fopen("C:\\Users\\yael1\\OneDrive\\Bureau\\Generateur-de-phrases-auto/dictionnaire_non_accentue.txt", "r");
-    //FILE* fichier = fopen("D:\\document\\Generateur-de-phrases-auto\\dictionnaire_non_accentue.txt", "r+");
     FILE* fichier = fopen("..\\dictionnaire_non_accentue.txt", "r");
     //Si le fichier n'est pas vide
     if (fichier != NULL)
@@ -113,11 +68,6 @@ t_tree* creation_arbres_et_donne(){
         //tant qu'on n'est pas à la dernière ligne
         while (fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3) != EOF){
 
-            /*char chaine1[TAILLE_MAX] = "";
-            char chaine2[TAILLE_MAX] = "";
-            char chaine3[TAILLE_MAX] = "";*/
-
-            //fscanf(fichier,"%s\t%s\t%s", chaine1,chaine2,chaine3);
 
             char type = typeIndentifie(chaine3);
 
