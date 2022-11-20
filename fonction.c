@@ -4,6 +4,9 @@
 
 #include "fonction.h"
 
+//Cette fonction permet de verifier si un caractère est dans un tableau
+//Elle prend en paramètre un noeud ainsi que la lettre que nous voulons vérifier
+//Elle retourne un entier, 0 si la lettre n'y est pas et 1 sinon
 int lettre_dans_tableau(p_node noeud, char lettre){
     int i = 0, verif = 0;
 
@@ -17,11 +20,3 @@ int lettre_dans_tableau(p_node noeud, char lettre){
     return verif;
 }
 
-char* copier_mot(char chaine_vide[], char chaine_a_copier[]){
-    int i = 0;
-    while(chaine_a_copier[i] != '\0'){
-        chaine_vide[i] = chaine_a_copier[i];
-        i++;
-    }
-    return chaine_vide;
-}
