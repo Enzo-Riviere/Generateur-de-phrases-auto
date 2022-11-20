@@ -13,6 +13,7 @@
 
 char typeIndentifie(char *ligne) {
     /*
+     * Cette fonction identify le type d'un mot.
      * char** ligne : correspond à une ligne du du dictionnaire.
      * return char* est le nom du type.
      */
