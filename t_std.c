@@ -34,16 +34,3 @@ t_std_list_mot createEmptylistMot(){
     maListVide.head = NULL;
     return maListVide;
 }
-
-/*p_node chainageMot(t_std_list_lettre *listeLettre, char lettre){
-    p_cell_lettre nouvelle_cellule;
-    nouvelle_cellule = createCellLettre(lettre);
-
-    if (listeLettre->head == NULL){
-        listeLettre->head = nouvelle_cellule;
-    }else{
-        nouvelle_cellule->next = listeLettre->head;
-        listeLettre->head = nouvelle_cellule;
-    }
-    return nouvelle_cellule->valeur;
-}*/

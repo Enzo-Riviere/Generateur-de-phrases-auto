@@ -5,6 +5,9 @@
 #include <malloc.h>
 #include "node.h"
 
+//Cette fonction permet de créer un noeud
+//Elle prend en paramètre le caractère qu'on veut y stocker
+//Elle retourne un noeud
 p_node createNode(char lettre){
     p_node noeud;
     noeud = (p_node)malloc(sizeof(t_node));
@@ -17,6 +20,9 @@ p_node createNode(char lettre){
     return noeud;
 }
 
+//Cette fonction permet d'ajouter un enfant dans un tableau d'enfant d'un noeud
+//Elle prend en paramètre un noeud ansi que le caractère à ajouter
+//Elle retourne un noeud
 p_node ajouter_enfant(p_node noeud, char lettre){
     p_node nv_enfant= createNode(lettre);
     noeud->enfants[noeud->nb_enfants] = nv_enfant;
@@ -26,6 +32,9 @@ p_node ajouter_enfant(p_node noeud, char lettre){
     return nv_enfant;
 }
 
+//Cette fonction permet mot vide
+//Elle prend en paramètre la chaine de caractère du mot sous forme de base
+//Elle retourne un type mot
 mot* creer_mot(char mot_court[]) {
     mot *temp;
     temp = (mot*) malloc(sizeof(mot));
