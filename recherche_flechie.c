@@ -87,7 +87,6 @@ int recherche_flechie(t_tree arbre, char mot[25]){
             if (cpt == taille_mot) {
                 trouve = 1;
             } else {
-                //printf("flechie suivant\n");
                 flechie = flechie->next;
                 pos++;
             }
