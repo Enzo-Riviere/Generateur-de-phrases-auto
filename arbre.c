@@ -134,6 +134,11 @@ char* donne_flechoe(mot* mot_choisi) {
 void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb ){
     /*
      * Cette foncton choisi aléatoirement depuis quelle arbre on doit générer aléatoirement un mot brut et lan,ce la fonction générant aléatoirement un mot brut.
+     * t_tree Nom : arbre contenant tous les noms.
+     * t_tree Adj : arbre contenant tous les adjectifs.
+     * t_tree Adv : arbre contenant tous les adverbes.
+     * t_tree Verb : arbre contenant tous les verbes.
+     * return : rien
      */
     //srand(time(NULL));
     int val = rand() % 4+1;
