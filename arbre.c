@@ -178,6 +178,12 @@ void extrait_mot_aleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb ){
 void genPhraseAleat(t_tree Nom, t_tree Adj, t_tree Adv, t_tree Verb, int cas) {
     /*
      * Cette fonction tous les arbes de mots et les utilise pou faire une phrase aléatoire sans accord.
+     * t_tree Nom : arbre contenant tous les noms.
+     * t_tree Adj : arbre contenant tous les adjectifs.
+     * t_tree Adv : arbre contenant tous les adverbes.
+     * t_tree Verb : arbre contenant tous les verbes.
+     * int cas : enitier indiquant la structure sélectionner par l'utilisateur.
+     * return : rien
      * */
     mot *nom_debut, *adjectif, *verbe1, *nom_fin, *verbe2, *adverbe;
     nom_debut = genMotAleat(&Nom);
