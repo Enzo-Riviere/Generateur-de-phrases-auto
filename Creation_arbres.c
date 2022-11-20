@@ -16,7 +16,6 @@ char typeIndentifie(char *ligne) {
      * char** ligne : correspond à une ligne du du dictionnaire.
      * return char* est le nom du type.
      */
-    //on prend le troisième caractère de la troisième chaine de caracctères qui à chaque fois propre à chaque type.
     char caractere_important;
     caractere_important = ligne[2];
     if (ligne[0] == 'N' && ligne[1] == 'o' && ligne[2] == 'm') {
